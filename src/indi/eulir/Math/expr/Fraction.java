@@ -48,9 +48,21 @@ public class Fraction
 		this.sign = boo;
 	}
 
+	public void oppositeNumber()
+	{
+		this.setSign(!this.sign);
+	}
+
 	public boolean getSign()
 	{
 		return this.sign;
+	}
+
+	public void reciprocal()
+	{
+		int temp = this.numerator;
+		this.numerator = this.denominator;
+		this.denominator = temp;
 	}
 
 	public Fraction add(Fraction a)
@@ -62,9 +74,9 @@ public class Fraction
 			int gcd = MathLibrary.gcd(newDenominator, newNumerator);
 			return new Fraction(newNumerator / gcd, newDenominator / gcd, false);
 		}
-		if (!this.sign && a.sign)
+		if (!this.sign)
 			return a.subtract(new Fraction(this.numerator, this.denominator, true));
-		if (this.sign && !a.sign)
+		if (!a.sign)
 			return this.subtract(new Fraction(a.numerator, a.denominator, true));
 		int newNumerator = this.numerator * a.denominator + this.denominator * a.numerator;
 		int newDenominator = this.denominator * a.denominator;
@@ -88,19 +100,28 @@ public class Fraction
 			Fraction base = newFraction1.add(newFraction2);
 			return new Fraction(base.numerator, base.denominator, false);
 		}
-		if (this.sign && !a.sign)
+		if (this.sign)
 		{
-			a.setSign(true);
-			return this.add(a);
+			Fraction temp = new Fraction(a.numerator, a.denominator, true);
+			return this.add(temp);
 		}
-		a.setSign(true);
-		return a.subtract(this);
-
+		Fraction temp = new Fraction(a.numerator, a.denominator, true);
+		return temp.add(this);
 	}
 
-	public Fraction multify(Fraction a)
+	public Fraction multiply(Fraction a)
 	{
-		return new Fraction(1, 1);
+		int m = this.numerator;
+		int n = this.denominator;
+		int o = a.numerator;
+		int p = a.denominator;
+		int g1 = MathLibrary.gcd(m, p);
+		m /= g1;
+		p /= g1;
+		int g2 = MathLibrary.gcd(n, o);
+		n /= g2;
+		o /= g2;
+		return new Fraction(m * o, n * p, this.sign == a.sign);
 	}
 
 	public String toString()
@@ -111,14 +132,5 @@ public class Fraction
 		if (denominator == 1)
 			return str + String.valueOf(numerator);
 		return str + numerator + "/" + denominator;
-	}
-
-	public static void main(String[] args)
-	{
-		Fraction a = new Fraction(-1, 2);
-		Fraction b = new Fraction(-3, 4);
-		System.out.println(a);
-		a = a.subtract(b);
-		System.out.println(a);
 	}
 }
