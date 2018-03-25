@@ -1,4 +1,4 @@
-package indi.eulir.Math.expr;
+package indi.eulir.math.expr;
 
 public class FractionTest
 {
@@ -10,19 +10,6 @@ public class FractionTest
 		Fraction b = new Fraction(-4, 2);
 		Fraction c = new Fraction(-6, -99);
 		Fraction d = new Fraction(3, -2);
-		System.out.println(a + " " + b + " " + c + " " + d);
-		//Fraction e = new Fraction(3,0);
-		System.out.println();
-
-		//test add
-		System.out.println("test add");
-		System.out.println(a.add(b));
-		System.out.println(a.add(c));
-		System.out.println(a.add(d));
-		System.out.println(b.add(c));
-		System.out.println(b.add(d));
-		System.out.println(c.add(d));
-		System.out.println();
 
 		//test subtract
 		System.out.println("test subtract");
@@ -63,5 +50,14 @@ public class FractionTest
 		System.out.println(b.multiply(d));
 		System.out.println(c.multiply(d));
 		System.out.println();
+
+		//test divide
+		System.out.println("test divide");
+		System.out.println(a.divide(b));
+		System.out.println(a.divide(c));
+		System.out.println(a.divide(d));
+		System.out.println(b.divide(c));
+		System.out.println(b.divide(d));
+		System.out.println(c.divide(d));
 	}
 }

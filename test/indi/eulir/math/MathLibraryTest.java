@@ -1,4 +1,4 @@
-package indi.eulir.Math;
+package indi.eulir.math;
 
 public class MathLibraryTest
 {

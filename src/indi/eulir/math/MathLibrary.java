@@ -1,23 +1,21 @@
-package indi.eulir.Math;
+package indi.eulir.math;
 
 public class MathLibrary
 {
 	/**
 	 * Return greatest common divisor of the argument
+	 *
 	 * @param a first parameter
 	 * @param b second parameter
 	 * @return greatest common divisor of the argument
 	 */
 	public static int gcd(int a, int b)
 	{
-		if (b == 0)
-			return a;
-		return gcd(b, a % b);
+		return b == 0 ? a : gcd(b, a % b);
 	}
 
 
 	public static void main(String[] args)
 	{
-
 	}
 }

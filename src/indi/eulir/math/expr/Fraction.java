@@ -1,11 +1,17 @@
-package indi.eulir.Math.expr;
+package indi.eulir.math.expr;
 
-import indi.eulir.Math.MathLibrary;
+import indi.eulir.math.MathLibrary;
+
+import java.util.Objects;
 
 /**
+ * This class mainly realize the math fraction including methods like add,
+ * subtract, multiply, divide, reciprocal, and opposite number etc. The naming
+ * principle is the same as java.math.BigInteger.
+ *
  * @author EULIR
- * @apiNote
- * @since 1.0.0
+ * @see indi.eulir.math ;
+ * @since v1.0.0
  */
 
 public class Fraction
@@ -14,16 +20,14 @@ public class Fraction
 	private int numerator;
 	private int denominator;
 
-	Fraction(int numerator, int denominator)
+	/**
+	 * @throws ArithmeticException when {@code denominator} is 0
+	 */
+	public Fraction(int numerator, int denominator)
 	{
 		if (denominator == 0)
 			throw new ArithmeticException("denominator cannot be zero");
-		Boolean sign = true;
-		if (numerator < 0)
-			sign = false;
-		if (denominator < 0)
-			sign = !sign;
-		this.sign = sign;
+		this.sign = numerator < 0 == denominator < 0;
 		numerator = Math.abs(numerator);
 		denominator = Math.abs(denominator);
 		int gcd = MathLibrary.gcd(numerator, denominator);
@@ -48,14 +52,19 @@ public class Fraction
 		this.sign = boo;
 	}
 
-	public void oppositeNumber()
+	public Fraction oppositeNumber()
+	{
+		return new Fraction(numerator, denominator, !sign);
+	}
+
+	public void opposite()
 	{
 		this.setSign(!this.sign);
 	}
 
-	public boolean getSign()
+	public String getSign()
 	{
-		return this.sign;
+		return this.sign ? "+" : "-";
 	}
 
 	public void reciprocal()
@@ -124,13 +133,36 @@ public class Fraction
 		return new Fraction(m * o, n * p, this.sign == a.sign);
 	}
 
+	public Fraction divide(Fraction a)
+	{
+		Fraction temp = new Fraction(a.numerator, a.denominator, a.sign);
+		temp.reciprocal();
+		return this.multiply(temp);
+	}
+
 	public String toString()
 	{
-		String str = "";
-		if (!sign)
-			str = "-";
-		if (denominator == 1)
-			return str + String.valueOf(numerator);
-		return str + numerator + "/" + denominator;
+		StringBuilder builder = new StringBuilder();
+		if (!sign) builder.append("-");
+		builder.append(numerator);
+		if (denominator != 1)
+			builder.append("/").append(denominator);
+		return builder.toString();
+	}
+
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+			return true;
+		if (obj == null || !(obj instanceof Fraction))
+			return false;
+		Fraction fraction = (Fraction) obj;
+		return this.sign == fraction.sign && this.numerator == fraction.numerator && this.denominator == fraction.denominator;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(sign, numerator, denominator);
 	}
 }
