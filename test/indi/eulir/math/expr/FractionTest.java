@@ -11,16 +11,6 @@ public class FractionTest
 		Fraction c = new Fraction(-6, -99);
 		Fraction d = new Fraction(3, -2);
 
-		//test subtract
-		System.out.println("test subtract");
-		System.out.println(a.subtract(b));
-		System.out.println(a.subtract(c));
-		System.out.println(a.subtract(d));
-		System.out.println(b.subtract(c));
-		System.out.println(b.subtract(d));
-		System.out.println(c.subtract(d));
-		System.out.println();
-
 		//test oppositeNumber;
 		System.out.println("test oppositeNumber");
 		a.oppositeNumber();

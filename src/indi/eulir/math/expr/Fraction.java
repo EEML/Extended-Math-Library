@@ -10,17 +10,19 @@ import java.util.Objects;
  * principle is the same as java.math.BigInteger.
  *
  * @author EULIR
- * @see indi.eulir.math ;
+ * @see indi.eulir.math;
  * @since v1.0.0
  */
 
-public class Fraction
+public class Fraction implements Comparable
 {
 	private boolean sign;
 	private int numerator;
 	private int denominator;
 
 	/**
+	 * @param numerator   numerator of a fraction
+	 * @param denominator denominator of a fraction
 	 * @throws ArithmeticException when {@code denominator} is 0
 	 */
 	public Fraction(int numerator, int denominator)
@@ -35,6 +37,12 @@ public class Fraction
 		this.denominator = denominator / gcd;
 	}
 
+	/**
+	 * @param numerator   numerator of a fraction
+	 * @param denominator denominator of a fraction
+	 * @param sign        sign of a fraction
+	 * @throws ArithmeticException when {@code denominator} is 0
+	 */
 	private Fraction(int numerator, int denominator, boolean sign)
 	{
 		if (denominator == 0)
@@ -47,26 +55,43 @@ public class Fraction
 		this.denominator = denominator / gcd;
 	}
 
+	/**
+	 * set the sign of the fraction
+	 *
+	 * @param boo sign of the fraction.True for positive and false for negative.
+	 */
 	private void setSign(boolean boo)
 	{
 		this.sign = boo;
 	}
 
+	/**
+	 * @return Opposite number of the given fraction
+	 */
 	public Fraction oppositeNumber()
 	{
 		return new Fraction(numerator, denominator, !sign);
 	}
 
+	/**
+	 * make the fraction become the opposite number.
+	 */
 	public void opposite()
 	{
 		this.setSign(!this.sign);
 	}
 
+	/**
+	 * @return the sign of the fraction."+" for positive and "-" for negative.
+	 */
 	public String getSign()
 	{
 		return this.sign ? "+" : "-";
 	}
 
+	/**
+	 * make the fraction become the reciprocal.
+	 */
 	public void reciprocal()
 	{
 		int temp = this.numerator;
@@ -74,6 +99,10 @@ public class Fraction
 		this.denominator = temp;
 	}
 
+	/**
+	 * @param a the addend fraction.
+	 * @return a new fraction which stands for the sum of two fractions.
+	 */
 	public Fraction add(Fraction a)
 	{
 		if (!this.sign && !a.sign)
@@ -93,6 +122,10 @@ public class Fraction
 		return new Fraction(newNumerator / gcd, newDenominator / gcd, true);
 	}
 
+	/**
+	 * @param a the minuend number.
+	 * @return a new fraction which stands for the difference between two fractions.
+	 */
 	public Fraction subtract(Fraction a)
 	{
 		if (this.sign && a.sign)
@@ -118,6 +151,10 @@ public class Fraction
 		return temp.add(this);
 	}
 
+	/**
+	 * @param a the multiplier fraction.
+	 * @return a new fraction which stands for the product of two fractions.
+	 */
 	public Fraction multiply(Fraction a)
 	{
 		int m = this.numerator;
@@ -133,6 +170,10 @@ public class Fraction
 		return new Fraction(m * o, n * p, this.sign == a.sign);
 	}
 
+	/**
+	 * @param a the dividend fractuon.
+	 * @return a new fraction which stands for the quotient of two fraction.
+	 */
 	public Fraction divide(Fraction a)
 	{
 		Fraction temp = new Fraction(a.numerator, a.denominator, a.sign);
@@ -140,16 +181,30 @@ public class Fraction
 		return this.multiply(temp);
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		if (!sign) builder.append("-");
+		if (!sign)
+			builder.append("-");
 		builder.append(numerator);
 		if (denominator != 1)
 			builder.append("/").append(denominator);
 		return builder.toString();
 	}
 
+	@Override
+	public int compareTo(Object o)
+	{
+		if (o == null || !(o instanceof Fraction))
+			throw new IllegalArgumentException();
+		if (o.equals(this))
+			return 0;
+		Fraction fraction = (Fraction) o;
+		return this.subtract(fraction).getSign().equals("+") ? 1 : -1;
+	}
+
+	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj == this)

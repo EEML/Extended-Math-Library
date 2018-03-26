@@ -21,13 +21,24 @@ public class FractionTest2
 	}
 
 	@Test
-	public void testAdd() {
+	public void testAdd()
+	{
 		assertEquals("-3/2", a.add(b).toString());
 		assertEquals("37/66", a.add(c).toString());
 		assertEquals("-1", a.add(d).toString());
 		assertEquals("-64/33", b.add(c).toString());
 		assertEquals("-7/2", b.add(d).toString());
 		assertEquals("-95/66", c.add(d).toString());
+	}
 
+	@Test
+	public void testSubtract()
+	{
+		assertEquals("5/2", a.subtract(b).toString());
+		assertEquals("29/66", a.subtract(c).toString());
+		assertEquals("2", a.subtract(d).toString());
+		assertEquals("-68/33", b.subtract(c).toString());
+		assertEquals("-1/2", b.subtract(d).toString());
+		assertEquals("103/66", c.subtract(d).toString());
 	}
 }
