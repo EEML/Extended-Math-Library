@@ -41,4 +41,15 @@ public class FractionTest2
 		assertEquals("-1/2", b.subtract(d).toString());
 		assertEquals("103/66", c.subtract(d).toString());
 	}
+
+	@Test
+	public void testMultiply()
+	{
+		assertEquals("-1", a.multiply(b).toString());
+		assertEquals("1/33", a.multiply(c).toString());
+		assertEquals("-3/4", a.multiply(d).toString());
+		assertEquals("-4/33", b.multiply(c).toString());
+		assertEquals("3", b.multiply(d).toString());
+		assertEquals("-1/11", c.multiply(d).toString());
+	}
 }

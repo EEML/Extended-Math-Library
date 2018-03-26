@@ -57,7 +57,6 @@ public class Fraction implements Comparable
 
 	/**
 	 * set the sign of the fraction
-	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
 	private void setSign(boolean boo)
