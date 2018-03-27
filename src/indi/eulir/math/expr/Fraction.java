@@ -57,6 +57,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * set the sign of the fraction
+	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
 	private void setSign(boolean boo)
@@ -178,6 +179,15 @@ public class Fraction implements Comparable
 		Fraction temp = new Fraction(a.numerator, a.denominator, a.sign);
 		temp.reciprocal();
 		return this.multiply(temp);
+	}
+
+	/**
+	 * @return the value of the fraction.
+	 */
+	public double getValue()
+	{
+		double d = (double) numerator / denominator;
+		return sign ? d : -d;
 	}
 
 	@Override
