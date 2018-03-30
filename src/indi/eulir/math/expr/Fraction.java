@@ -60,7 +60,7 @@ public class Fraction implements Comparable
 	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
-	private void setSign(boolean boo)
+	public void setSign(boolean boo)
 	{
 		this.sign = boo;
 	}
