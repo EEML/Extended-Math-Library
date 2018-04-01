@@ -2,8 +2,13 @@ sudo: required
 
 language: java
 
-jdk:
-- openjdk10
+matrix:
+  include:
+    - jdk: oraclejdk10
+        addons:
+          apt:
+            packages:
+              - oracle-java10-installer # https://docs.travis-ci.com/user/languages/java/#Updating-Oracle-JDK-to-a-recent-release
 
 script:
 - "./gradlew test"
