@@ -205,7 +205,7 @@ public class Fraction implements Comparable
 	@Override
 	public int compareTo(Object o)
 	{
-		if (o == null || !(o instanceof Fraction))
+		if (!(o instanceof Fraction))
 			throw new IllegalArgumentException();
 		if (o.equals(this))
 			return 0;
@@ -218,7 +218,7 @@ public class Fraction implements Comparable
 	{
 		if (obj == this)
 			return true;
-		if (obj == null || !(obj instanceof Fraction))
+		if (!(obj instanceof Fraction))
 			return false;
 		Fraction fraction = (Fraction) obj;
 		return this.sign == fraction.sign && this.numerator == fraction.numerator && this.denominator == fraction.denominator;
