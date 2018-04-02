@@ -42,8 +42,9 @@ public class Fraction implements Comparable
 	 * @param denominator denominator of a fraction
 	 * @param sign        sign of a fraction
 	 * @throws ArithmeticException when {@code denominator} is 0
+	 * @throws IllegalArgumentException when {@code numerator} or {@code denominator} is negative
 	 */
-	private Fraction(int numerator, int denominator, boolean sign)
+	public Fraction(int numerator, int denominator, boolean sign)
 	{
 		if (denominator == 0)
 			throw new ArithmeticException("denominator cannot be zero");
@@ -57,7 +58,6 @@ public class Fraction implements Comparable
 
 	/**
 	 * set the sign of the fraction
-	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
 	public void setSign(boolean boo)

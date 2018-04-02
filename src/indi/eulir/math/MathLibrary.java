@@ -13,9 +13,4 @@ public class MathLibrary
 	{
 		return b == 0 ? a : gcd(b, a % b);
 	}
-
-
-	public static void main(String[] args)
-	{
-	}
 }

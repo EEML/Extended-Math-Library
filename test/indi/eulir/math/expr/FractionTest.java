@@ -3,6 +3,7 @@ package indi.eulir.math.expr;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class FractionTest
 {
@@ -10,6 +11,29 @@ public class FractionTest
 	private Fraction b = new Fraction(-4, 2);
 	private Fraction c = new Fraction(-6, -99);
 	private Fraction d = new Fraction(3, -2);
+
+	private static void assertThrows(Class<? extends Throwable> clazz, Runnable function)
+	{
+		try
+		{
+			function.run();
+		} catch (Throwable e)
+		{
+			if (e.getClass() == clazz)
+				System.out.println("Successfully thrown " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
+			else fail("Error: expected: " + clazz.getSimpleName() + ", get: " + e.getClass().getSimpleName());
+			return;
+		}
+		fail("No exceptions thrown!");
+	}
+
+	@Test
+	public void testException()
+	{
+		assertThrows(ArithmeticException.class, () -> new Fraction(1, 0));
+		assertThrows(ArithmeticException.class, () -> new Fraction(1, 0, true));
+		assertThrows(IllegalArgumentException.class, () -> new Fraction(-1, -1, true));
+	}
 
 	@Test
 	public void testToString()
@@ -77,5 +101,37 @@ public class FractionTest
 	public void testOppositeNumber()
 	{
 		assertEquals("-1/2", a.oppositeNumber().toString());
+		assertEquals("2", b.oppositeNumber().toString());
+		assertEquals("-2/33", c.oppositeNumber().toString());
+		assertEquals("3/2", d.oppositeNumber().toString());
 	}
+
+	@Test
+	public void testOpposite()
+	{
+		a.opposite();
+		assertEquals("-1/2", a.toString());
+		a.opposite();
+		assertEquals("1/2", a.toString());
+	}
+
+	@Test
+	public void testGetSign()
+	{
+		assertEquals("+", a.getSign());
+		assertEquals("-", b.getSign());
+		assertEquals("+", c.getSign());
+		assertEquals("-", d.getSign());
+	}
+
+	@Test
+	public void testGetValue()
+	{
+		assertEquals(0.5, a.getValue(), 0.01);
+		assertEquals(-2.0, b.getValue(), 0.01);
+		assertEquals(0.0606, c.getValue(), 0.01);
+		assertEquals(-1.5, d.getValue(), 0.01);
+	}
+
+
 }
