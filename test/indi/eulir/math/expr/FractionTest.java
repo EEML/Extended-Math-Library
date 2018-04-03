@@ -2,8 +2,7 @@ package indi.eulir.math.expr;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class FractionTest
 {
@@ -133,5 +132,19 @@ public class FractionTest
 		assertEquals(-1.5, d.getValue(), 0.01);
 	}
 
+	@Test
+	public void testCompareTo()
+	{
+		assertTrue(a.compareTo(b) > 0);
+		assertTrue(a.compareTo(c) > 0);
+		assertTrue(a.compareTo(d) > 0);
+		assertTrue(b.compareTo(c) < 0);
+		assertTrue(b.compareTo(d) < 0);
+		assertTrue(c.compareTo(d) > 0);
 
+		Fraction x = new Fraction(2, 4);
+		Fraction y = new Fraction(1, 2);
+		assertEquals(0, x.compareTo(y));
+		assertThrows(IllegalArgumentException.class, ()-> a.compareTo(new Object()));
+	}
 }
