@@ -41,7 +41,7 @@ public class Fraction implements Comparable
 	 * @param numerator   numerator of a fraction
 	 * @param denominator denominator of a fraction
 	 * @param sign        sign of a fraction
-	 * @throws ArithmeticException when {@code denominator} is 0
+	 * @throws ArithmeticException      when {@code denominator} is 0
 	 * @throws IllegalArgumentException when {@code numerator} or {@code denominator} is negative
 	 */
 	public Fraction(int numerator, int denominator, boolean sign)
@@ -58,6 +58,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * set the sign of the fraction
+	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
 	public void setSign(boolean boo)
@@ -190,6 +191,12 @@ public class Fraction implements Comparable
 		return sign ? d : -d;
 	}
 
+	/**
+	 * toString method overridden from super class
+	 *
+	 * @return return String formed in
+	 * "sign" + "numerator" + "/" + "denominator"
+	 */
 	@Override
 	public String toString()
 	{
@@ -202,6 +209,15 @@ public class Fraction implements Comparable
 		return builder.toString();
 	}
 
+	/**
+	 * compareTo method implemented from Comparable interface.
+	 *
+	 * @param o the compared object
+	 * @return negative number if this fraction{@code this} is less than
+	 * the compared fraction{@code o} while positive number when larger.
+	 * 0 when two fractions are equal.
+	 * @throws IllegalArgumentException when {@code o is not a fraction}
+	 */
 	@Override
 	public int compareTo(Object o)
 	{
@@ -213,6 +229,12 @@ public class Fraction implements Comparable
 		return this.subtract(fraction).getSign().equals("+") ? 1 : -1;
 	}
 
+	/**
+	 * equals method overridden form super class
+	 *
+	 * @param obj the compared object
+	 * @return true if two fractions are equal, otherwise false.
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -224,6 +246,10 @@ public class Fraction implements Comparable
 		return this.sign == fraction.sign && this.numerator == fraction.numerator && this.denominator == fraction.denominator;
 	}
 
+	/**
+	 * hashCode method overridden from super class
+	 * @return hashCode of the fraction.
+	 */
 	@Override
 	public int hashCode()
 	{
