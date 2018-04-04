@@ -4,6 +4,15 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This is the test class of Fraction class
+ *
+ * @author EULIR
+ * @version v1.0.0
+ * @coverage 100%
+ * @see org.eeml.math
+ */
+
 public class FractionTest
 {
 	private Fraction a = new Fraction(1, 2);
@@ -145,6 +154,33 @@ public class FractionTest
 		Fraction x = new Fraction(2, 4);
 		Fraction y = new Fraction(1, 2);
 		assertEquals(0, x.compareTo(y));
-		assertThrows(IllegalArgumentException.class, ()-> a.compareTo(new Object()));
+		assertThrows(IllegalArgumentException.class, () -> a.compareTo(new Object()));
+	}
+
+	@Test
+	public void testEquals()
+	{
+		Fraction test1 = new Fraction(1, 3);
+		Fraction test2 = test1;
+		assertTrue(test1.equals(test2));
+		Fraction test3 = new Fraction(2, 6);
+		assertTrue(test1.equals(test3));
+		Fraction test4 = new Fraction(-1, 2);
+		assertFalse(test1.equals(test4));
+		Fraction test5 = new Fraction(1, -2);
+		assertTrue(test5.equals(test4));
+		assertFalse(test1.equals(new Object()));
+	}
+
+	@Test
+	public void testHashCode()
+	{
+		Fraction test1 = new Fraction(1, 3);
+		Fraction test3 = new Fraction(2, 6);
+		Fraction test4 = new Fraction(-1, 2);
+		Fraction test5 = new Fraction(1, -2);
+		assertEquals(test1.hashCode(), test3.hashCode());
+		assertEquals(test4.hashCode(), test5.hashCode());
+		assertNotEquals(test1.hashCode(), test4.hashCode());
 	}
 }

@@ -1,5 +1,13 @@
 package org.eeml.math;
 
+/**
+ * This class mainly contains some mathematics methods which can be
+ * generally used when solving math problems.
+ *
+ * @author EULIR
+ * @see org.eeml.math
+ * @since v1.0.0
+ */
 public class MathLibrary
 {
 	/**
