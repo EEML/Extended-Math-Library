@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * This is the test class of MathematicalConstant class
+ * Maintained by EEML. see more on <code>eeml.github.io<code/>
  *
  * @author EULIR
  * @version v1.0.0

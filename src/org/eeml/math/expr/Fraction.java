@@ -5,9 +5,10 @@ import org.eeml.math.MathLibrary;
 import java.util.Objects;
 
 /**
- * This class mainly realize the math fraction including methods like add,
+ * This class mainly implements the math fraction including methods like add,
  * subtract, multiply, divide, reciprocal, and opposite number etc. The naming
  * principle is the same as java.math.BigInteger.
+ * Maintained by EEML. see more on <code>eeml.github.io<code/>
  *
  * @author EULIR
  * @see org.eeml.math;
