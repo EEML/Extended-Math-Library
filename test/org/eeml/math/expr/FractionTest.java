@@ -133,6 +133,24 @@ public class FractionTest
 	}
 
 	@Test
+	public void testGetNumerator()
+	{
+		assertEquals(1, a.getNumerator());
+		assertEquals(2, b.getNumerator());
+		assertEquals(2, c.getNumerator());
+		assertEquals(3, d.getNumerator());
+	}
+
+	@Test
+	public void testGetDenominator()
+	{
+		assertEquals(2, a.getDenominator());
+		assertEquals(1, b.getDenominator());
+		assertEquals(33, c.getDenominator());
+		assertEquals(2, d.getDenominator());
+	}
+
+	@Test
 	public void testGetValue()
 	{
 		assertEquals(0.5, a.getValue(), 0.01);

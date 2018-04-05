@@ -83,11 +83,30 @@ public class Fraction implements Comparable
 	}
 
 	/**
+	 * getter method of {@code sign}
 	 * @return the sign of the fraction."+" for positive and "-" for negative.
 	 */
 	public String getSign()
 	{
 		return this.sign ? "+" : "-";
+	}
+
+	/**
+	 * getter method of {@code numerator}
+	 * @return the numerator of the fraction
+	 */
+	public int getNumerator()
+	{
+		return this.numerator;
+	}
+
+	/**
+	 * getter method of {@code denominator}
+	 * @return the denominator of the fraction
+	 */
+	public int getDenominator()
+	{
+		return this.denominator;
 	}
 
 	/**
