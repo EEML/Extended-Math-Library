@@ -46,7 +46,7 @@ public class MathematicalConstant
 
 	/**
 	 * The square root of 2, or the (1/2)th power of 2,
-	 * written in mathematics as √2 or 2​^1⁄2, is the positive
+	 * written in mathematics as √2 or 2​^1/2, is the positive
 	 * algebraic number that, when multiplied by itself,
 	 * gives the number 2.
 	 */
@@ -157,7 +157,7 @@ public class MathematicalConstant
 	public static final double MILLS_CONSTANT = 1.306377883863080;
 
 	/**
-	 * In mathematics, the plastic number ρ (also known as
+	 * In mathematics, the plastic number(also known as
 	 * the plastic constant, the minimal Pisot number, the
 	 * platin number, Siegel's number or, in French, le nombre
 	 * radiant) is a mathematical constant which is the unique
