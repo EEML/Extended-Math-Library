@@ -3,7 +3,7 @@ package org.eeml.math;
 /**
  * This class mainly contains some mathematics methods which can be
  * generally used when solving math problems.
- * Maintained by <a href="http://github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
+ * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
  * @see org.eeml.math
