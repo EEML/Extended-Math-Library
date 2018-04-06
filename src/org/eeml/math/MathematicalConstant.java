@@ -3,7 +3,7 @@ package org.eeml.math;
 /**
  * This class mainly contains some general mathematical constants.
  * When solving math problems, those constants might help.
- * Maintained by EEML. see more on <code>eeml.github.io<code/>
+ * Maintained by <a href="http://github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
  * @version v1.0.0

@@ -8,7 +8,7 @@ import java.util.Objects;
  * This class mainly implements the math fraction including methods like add,
  * subtract, multiply, divide, reciprocal, and opposite number etc. The naming
  * principle is the same as java.math.BigInteger.
- * Maintained by <a href="github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
+ * Maintained by <a href="http://github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
  * @see org.eeml.math;

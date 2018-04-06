@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 /**
  * This is the test class of Fraction class
- * Maintained by EEML. see more on <code>eeml.github.io<code/>
+ * Maintained by <a href="http://github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
  * @version v1.0.0
