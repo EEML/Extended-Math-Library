@@ -8,7 +8,7 @@ import java.util.Objects;
  * This class mainly implements the math fraction including methods like add,
  * subtract, multiply, divide, reciprocal, and opposite number etc. The naming
  * principle is the same as java.math.BigInteger.
- * Maintained by EEML. see more on <code>eeml.github.io<code/>
+ * Maintained by <a href="github.com/eeml">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
  * @see org.eeml.math;
@@ -85,6 +85,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * getter method of {@code sign}
+	 *
 	 * @return the sign of the fraction."+" for positive and "-" for negative.
 	 */
 	public String getSign()
@@ -94,6 +95,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * getter method of {@code numerator}
+	 *
 	 * @return the numerator of the fraction
 	 */
 	public int getNumerator()
@@ -103,6 +105,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * getter method of {@code denominator}
+	 *
 	 * @return the denominator of the fraction
 	 */
 	public int getDenominator()
@@ -192,7 +195,7 @@ public class Fraction implements Comparable
 	}
 
 	/**
-	 * @param a the dividend fractuon.
+	 * @param a the dividend fraction.
 	 * @return a new fraction which stands for the quotient of two fraction.
 	 */
 	public Fraction divide(Fraction a)
@@ -268,6 +271,7 @@ public class Fraction implements Comparable
 
 	/**
 	 * hashCode method overridden from super class
+	 *
 	 * @return hashCode of the fraction.
 	 */
 	@Override
