@@ -16,6 +16,8 @@ buildscript {
 		mavenCentral()
 		jcenter()
 	}
+
+	dependencies { 	classpath(kotlin("gradle-plugin", "1.2.31")) }
 }
 
 plugins {
@@ -23,8 +25,8 @@ plugins {
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_1_10
-	targetCompatibility = JavaVersion.VERSION_1_10
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType<JavaCompile> {
@@ -45,8 +47,10 @@ java.sourceSets {
 repositories {
 	mavenCentral()
 	jcenter()
+	maven("https://jitpack.io")
 }
 
 dependencies {
+	compile(group = "com.github.cqjjjzr", name = "Gensokyo", version = "1.1")
 	testCompile("junit", "junit", "4.12")
 }
