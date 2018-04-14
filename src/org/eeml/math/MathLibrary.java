@@ -22,4 +22,16 @@ public class MathLibrary
 	{
 		return b == 0 ? a : gcd(b, a % b);
 	}
+
+	public static boolean isSquare(int a)
+	{
+		int b = (int) Math.sqrt(a);
+		return b * b == a;
+	}
+
+	public static boolean isSquare(long a)
+	{
+		long b = (long) Math.sqrt(a);
+		return b * b == a;
+	}
 }
