@@ -9,6 +9,8 @@ public class Root
 
 	public Root(int base)
 	{
+		if (base < 0)
+			throw new ArithmeticException("Base of a square root cannot be negative");
 		if (MathLibrary.isSquare(base))
 		{
 			this.coefficient = (int) Math.sqrt(base);
@@ -16,7 +18,7 @@ public class Root
 			return;
 		}
 		this.coefficient = 1;
-		for (int i = 2; i < Math.sqrt(base); i++)
+		for (int i = (int) Math.sqrt(base); i >= 2; i--)
 			if (base % i == 0 && base % (i * i) == 0)
 			{
 				this.coefficient *= i;
@@ -45,6 +47,11 @@ public class Root
 		this.base = base;
 	}
 
+	public Root multiply(Root a)
+	{
+		return new Root(this.coefficient * this.coefficient * this.base * a.coefficient * a.coefficient * a.base);
+	}
+
 	/**
 	 * toString method overridden from super class
 	 *
@@ -60,6 +67,5 @@ public class Root
 			return "√" + this.base;
 		else return this.coefficient + "√" + this.base;
 	}
-
 
 }
