@@ -1,6 +1,7 @@
 package org.eeml.math.expr;
 
 import org.eeml.math.MathLibrary;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -242,7 +243,7 @@ public class Fraction implements Comparable
 	 * @throws IllegalArgumentException when {@code o is not a fraction}
 	 */
 	@Override
-	public int compareTo(Object o)
+	public int compareTo(@NotNull Object o)
 	{
 		if (!(o instanceof Fraction))
 			throw new IllegalArgumentException();

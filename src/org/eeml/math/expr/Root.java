@@ -1,8 +1,11 @@
 package org.eeml.math.expr;
 
 import org.eeml.math.MathLibrary;
+import org.jetbrains.annotations.NotNull;
 
-public class Root
+import java.util.Objects;
+
+public class Root implements Comparable
 {
 	private int coefficient;
 	private int base;
@@ -52,6 +55,11 @@ public class Root
 		return new Root(this.coefficient * this.coefficient * this.base * a.coefficient * a.coefficient * a.base);
 	}
 
+	public double getValue()
+	{
+		return this.coefficient * Math.sqrt(base);
+	}
+
 	/**
 	 * toString method overridden from super class
 	 *
@@ -66,6 +74,53 @@ public class Root
 		else if (this.coefficient == 1)
 			return "√" + this.base;
 		else return this.coefficient + "√" + this.base;
+	}
+
+	/**
+	 * compareTo method implemented from Comparable interface.
+	 *
+	 * @param o the compared object
+	 * @return negative number if this root{@code this} is less than
+	 * the compared root{@code o} while positive number when larger.
+	 * 0 when two roots are equal.
+	 * @throws IllegalArgumentException when {@code o is not a root}
+	 */
+	@Override
+	public int compareTo(@NotNull Object o)
+	{
+		if (!(o instanceof Root))
+			throw new IllegalArgumentException();
+		if (o.equals(this))
+			return 0;
+		return this.getValue() > ((Root) o).getValue() ? 1 : -1;
+	}
+
+	/**
+	 * equals method overridden form super class
+	 *
+	 * @param obj the compared object
+	 * @return true if two roots are equal, otherwise false.
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Root))
+			return false;
+		Root root = (Root) obj;
+		return this.coefficient == root.coefficient && this.base == root.base;
+	}
+
+	/**
+	 * hashCode method overridden from super class
+	 *
+	 * @return hashCode of the root.
+	 */
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(coefficient, base);
 	}
 
 }
