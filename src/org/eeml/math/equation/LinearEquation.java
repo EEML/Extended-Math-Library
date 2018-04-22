@@ -8,30 +8,59 @@ public class LinearEquation implements Comparable
 {
 	private double a;
 	private double b;
+	private double c;
 	private double x;
 
 	public LinearEquation(double a, double b)
 	{
+		if (a == 0)
+			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
 		this.a = a;
 		this.b = b;
+		this.c = 0.0D;
+		this.x = -this.b / this.a;
 	}
 
 	public LinearEquation(int a, int b)
 	{
+		if (a == 0)
+			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
 		this.a = (double) a;
 		this.b = (double) b;
+		this.c = 0.0D;
+		this.x = -this.b / this.a;
+	}
+
+	public LinearEquation(double a, double b, double c)
+	{
+		if (a == 0)
+			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.x = (this.c - this.b) / this.a;
+	}
+
+	public LinearEquation(int a, int b, int c)
+	{
+		if (a == 0)
+			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+		this.a = (double) a;
+		this.b = (double) b;
+		this.c = (double) c;
+		this.x = (this.c - this.b) / this.a;
 	}
 
 	/**
 	 * toString method overridden from super class
 	 *
 	 * @return return String formed in
-	 * ax+b=0
+	 * ax+b=c
 	 */
 	@Override
 	public String toString()
 	{
-		return this.b == 0 ? this.a + "x=" + 0 : this.a + "x+" + this.b + "=" + 0;
+		return this.b == 0 ? this.a + "x=" + 0 : this.a + "x+" + this.b + "=" + this.c;
 	}
 
 	/**
@@ -67,7 +96,7 @@ public class LinearEquation implements Comparable
 		if (!(obj instanceof LinearEquation))
 			return false;
 		LinearEquation linearEquation = (LinearEquation) obj;
-		return this.a == linearEquation.a && this.b == linearEquation.b;
+		return this.a == linearEquation.a && this.b == linearEquation.b && this.c == linearEquation.c;
 	}
 
 
@@ -79,6 +108,6 @@ public class LinearEquation implements Comparable
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash(a, b, x);
+		return Objects.hash(a, b, c, x);
 	}
 }
