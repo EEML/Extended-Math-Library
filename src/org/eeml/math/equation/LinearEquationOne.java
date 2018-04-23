@@ -4,14 +4,22 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class LinearEquation implements Comparable
+/**
+ * This class mainly implements linear equation with one unknown.
+ * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
+ *
+ * @author EULIR
+ * @see org.eeml.math;
+ * @since v1.0.0
+ */
+public class LinearEquationOne implements Comparable
 {
 	private double a;
 	private double b;
 	private double c;
 	private double x;
 
-	public LinearEquation(double a, double b)
+	public LinearEquationOne(double a, double b)
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
@@ -21,7 +29,7 @@ public class LinearEquation implements Comparable
 		this.x = -this.b / this.a;
 	}
 
-	public LinearEquation(int a, int b)
+	public LinearEquationOne(int a, int b)
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
@@ -31,7 +39,7 @@ public class LinearEquation implements Comparable
 		this.x = -this.b / this.a;
 	}
 
-	public LinearEquation(double a, double b, double c)
+	public LinearEquationOne(double a, double b, double c)
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
@@ -41,7 +49,7 @@ public class LinearEquation implements Comparable
 		this.x = (this.c - this.b) / this.a;
 	}
 
-	public LinearEquation(int a, int b, int c)
+	public LinearEquationOne(int a, int b, int c)
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
@@ -49,6 +57,11 @@ public class LinearEquation implements Comparable
 		this.b = (double) b;
 		this.c = (double) c;
 		this.x = (this.c - this.b) / this.a;
+	}
+
+	public double getSolution()
+	{
+		return x;
 	}
 
 	/**
@@ -60,7 +73,7 @@ public class LinearEquation implements Comparable
 	@Override
 	public String toString()
 	{
-		return this.b == 0 ? this.a + "x=" + 0 : this.a + "x+" + this.b + "=" + this.c;
+		return this.b == 0 ? this.a + "x=" + 0 + "\tx=" + this.x: this.a + "x+" + this.b + "=" + this.c + "\tx=" + this.x;
 	}
 
 	/**
@@ -75,11 +88,11 @@ public class LinearEquation implements Comparable
 	@Override
 	public int compareTo(@NotNull Object o)
 	{
-		if (!(o instanceof LinearEquation))
+		if (!(o instanceof LinearEquationOne))
 			throw new IllegalArgumentException();
 		if (o.equals(this))
 			return 0;
-		return this.x > ((LinearEquation) o).x ? 1 : -1;
+		return this.x > ((LinearEquationOne) o).x ? 1 : -1;
 	}
 
 	/**
@@ -93,10 +106,10 @@ public class LinearEquation implements Comparable
 	{
 		if (obj == this)
 			return true;
-		if (!(obj instanceof LinearEquation))
+		if (!(obj instanceof LinearEquationOne))
 			return false;
-		LinearEquation linearEquation = (LinearEquation) obj;
-		return this.a == linearEquation.a && this.b == linearEquation.b && this.c == linearEquation.c;
+		LinearEquationOne linearEquationOne = (LinearEquationOne) obj;
+		return this.a == linearEquationOne.a && this.b == linearEquationOne.b && this.c == linearEquationOne.c;
 	}
 
 

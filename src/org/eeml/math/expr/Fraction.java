@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * This class mainly implements the math fraction including methods like add,
+ * This class mainly implements the math expression fraction including methods like add,
  * subtract, multiply, divide, reciprocal, and opposite number etc. The naming
  * principle is the same as java.math.BigInteger.
  * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>

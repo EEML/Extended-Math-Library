@@ -5,6 +5,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+/**
+ * This class mainly implements the math expression square root. The class allows users to
+ * calculate and express the square root of an integer that can be displayed in a appealing way.
+ * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
+ *
+ * @author EULIR
+ * @see org.eeml.math;
+ * @since v1.0.0
+ */
 public class Root implements Comparable
 {
 	private int coefficient;
