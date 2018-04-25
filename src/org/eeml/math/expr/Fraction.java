@@ -1,6 +1,7 @@
 package org.eeml.math.expr;
 
 import org.eeml.math.MathLibrary;
+import org.eeml.math.exception.DivideZeroException;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class Fraction implements Comparable
 	public Fraction(int numerator, int denominator)
 	{
 		if (denominator == 0)
-			throw new ArithmeticException("denominator cannot be zero");
+			throw new DivideZeroException();
 		this.sign = numerator < 0 == denominator < 0;
 		numerator = Math.abs(numerator);
 		denominator = Math.abs(denominator);
@@ -49,7 +50,7 @@ public class Fraction implements Comparable
 	public Fraction(int numerator, int denominator, boolean sign)
 	{
 		if (denominator == 0)
-			throw new ArithmeticException("denominator cannot be zero");
+			throw new DivideZeroException();
 		if (numerator < 0 || denominator < 0)
 			throw new IllegalArgumentException();
 		this.sign = sign;

@@ -1,11 +1,13 @@
 package org.eeml.math.equation;
 
+import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 /**
- * This class mainly implements linear equation with one unknown.
+ * This class mainly implements linear equation with one unknown. It provides methods like
+ * getSolution
  * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
@@ -22,7 +24,7 @@ public class LinearEquationOne implements Comparable
 	public LinearEquationOne(double a, double b)
 	{
 		if (a == 0)
-			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+			throw new HighestCoefficientBeZeroException();
 		this.a = a;
 		this.b = b;
 		this.c = 0.0D;
@@ -32,7 +34,7 @@ public class LinearEquationOne implements Comparable
 	public LinearEquationOne(int a, int b)
 	{
 		if (a == 0)
-			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+			throw new HighestCoefficientBeZeroException();
 		this.a = (double) a;
 		this.b = (double) b;
 		this.c = 0.0D;

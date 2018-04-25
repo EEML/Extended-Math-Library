@@ -1,5 +1,6 @@
 package org.eeml.math.expr;
 
+import org.eeml.math.exception.DivideZeroException;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -39,8 +40,8 @@ public class FractionTest
 	@Test
 	public void testException()
 	{
-		assertThrows(ArithmeticException.class, () -> new Fraction(1, 0));
-		assertThrows(ArithmeticException.class, () -> new Fraction(1, 0, true));
+		assertThrows(DivideZeroException.class, () -> new Fraction(1, 0));
+		assertThrows(DivideZeroException.class, () -> new Fraction(1, 0, true));
 		assertThrows(IllegalArgumentException.class, () -> new Fraction(-1, -1, true));
 	}
 
