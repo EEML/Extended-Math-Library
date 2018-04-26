@@ -3,6 +3,7 @@ package org.eeml.math.equation;
 import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.MessageFormat;
 import java.util.Objects;
 
 /**
@@ -27,7 +28,7 @@ public class LinearEquationOne implements Comparable
 			throw new HighestCoefficientBeZeroException();
 		this.a = a;
 		this.b = b;
-		this.c = 0.0D;
+		this.c = 0;
 		this.x = -this.b / this.a;
 	}
 
@@ -37,7 +38,7 @@ public class LinearEquationOne implements Comparable
 			throw new HighestCoefficientBeZeroException();
 		this.a = (double) a;
 		this.b = (double) b;
-		this.c = 0.0D;
+		this.c = 0;
 		this.x = -this.b / this.a;
 	}
 
@@ -45,6 +46,8 @@ public class LinearEquationOne implements Comparable
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+		if (Math.abs(c) < 0.00001)
+			throw new IllegalStateException("You should use another constructor");
 		this.a = a;
 		this.b = b;
 		this.c = c;
@@ -55,6 +58,8 @@ public class LinearEquationOne implements Comparable
 	{
 		if (a == 0)
 			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+		if (Math.abs(c) < 0.00001)
+			throw new IllegalStateException("You should use another constructor");
 		this.a = (double) a;
 		this.b = (double) b;
 		this.c = (double) c;
@@ -75,7 +80,20 @@ public class LinearEquationOne implements Comparable
 	@Override
 	public String toString()
 	{
-		return this.b == 0 ? this.a + "x=" + 0 + "\tx=" + this.x: this.a + "x+" + this.b + "=" + this.c + "\tx=" + this.x;
+		if (this.a == 1)
+			if (this.b == 0)
+				return MessageFormat.format("x={0}\tx={1}", this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
+			else
+				return MessageFormat.format("x" + (this.b < 0 ? "" : "+") + "{0}={1}\tx={2}", this.b, this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
+		else if (this.a == -1)
+			if (this.b == 0)
+				return MessageFormat.format("-x={0}\tx={1}", this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
+			else
+				return MessageFormat.format("-x" + (this.b < 0 ? "" : "+") + "{0}={1}\tx={2}", this.b, this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
+		else if (this.b == 0)
+			return MessageFormat.format("{0}x={1}\tx={2}", this.a, this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
+		else
+			return MessageFormat.format("{0}x" + (this.b < 0 ? "" : "+") + "{1}={2}\tx={3}", this.a, this.b, this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
 	}
 
 	/**
