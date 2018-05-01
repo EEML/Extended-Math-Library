@@ -14,4 +14,9 @@ public class HighestCoefficientBeZeroException extends IllegalArgumentException
 	{
 		this("Highest degree coefficient of an expression cannot be zero");
 	}
+
+	public HighestCoefficientBeZeroException(Class clazz)
+	{
+		this("Instance of " + clazz.getSimpleName() + " cannot have zero as the highest coefficient.");
+	}
 }
