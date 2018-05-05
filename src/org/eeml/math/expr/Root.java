@@ -3,6 +3,7 @@ package org.eeml.math.expr;
 import org.eeml.math.MathLibrary;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.MessageFormat;
 import java.util.Objects;
 
 /**
@@ -81,8 +82,8 @@ public class Root implements Comparable
 		if (this.base == 0)
 			return String.valueOf(this.coefficient);
 		else if (this.coefficient == 1)
-			return "√" + this.base;
-		else return this.coefficient + "√" + this.base;
+			return MessageFormat.format("√{0}", this.base);
+		else return MessageFormat.format("{0}√{1}", this.coefficient, this.base);
 	}
 
 	/**

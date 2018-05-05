@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * This class mainly implements linear equation with one unknown. It provides methods like
- * getSolution
+ * getSolution.
  * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
  *
  * @author EULIR
