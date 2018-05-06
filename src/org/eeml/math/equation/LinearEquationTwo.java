@@ -54,7 +54,7 @@ public class LinearEquationTwo
 	 * @param b2 coefficient of y in the second equation
 	 * @param c2 constant coefficient in the first equation
 	 * @throws HighestCoefficientBeZeroException when {@code a1}, {@code b1},
-	 * {@code a2} or {@code b2} is zero
+	 *                                           {@code a2} or {@code b2} is zero
 	 */
 	public LinearEquationTwo(double a1, double b1, double c1, double a2, double b2, double c2)
 	{

@@ -3,26 +3,11 @@ package org.eeml.math.equation;
 import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.junit.Test;
 
+import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 public class LinearEquationOneTest
 {
-	private static void assertThrows(Class<? extends Throwable> clazz, Runnable function)
-	{
-		try
-		{
-			function.run();
-		} catch (Throwable e)
-		{
-			if (e.getClass() == clazz)
-				System.out.println("Successfully thrown " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
-			else fail("Error: expected: " + clazz.getSimpleName() + ", get: " + e.getClass().getSimpleName());
-			return;
-		}
-		fail("No exceptions thrown!");
-	}
-
 	LinearEquationOne line1 = new LinearEquationOne(2, 2, 9);
 	LinearEquationOne line2 = new LinearEquationOne(-3, -2, -1);
 	LinearEquationOne line3 = new LinearEquationOne(-2.2, 4.5, 6);

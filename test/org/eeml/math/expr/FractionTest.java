@@ -3,6 +3,7 @@ package org.eeml.math.expr;
 import org.eeml.math.exception.DivideZeroException;
 import org.junit.Test;
 
+import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 /**
@@ -21,21 +22,6 @@ public class FractionTest
 	private Fraction b = new Fraction(-4, 2);
 	private Fraction c = new Fraction(-6, -99);
 	private Fraction d = new Fraction(3, -2);
-
-	private static void assertThrows(Class<? extends Throwable> clazz, Runnable function)
-	{
-		try
-		{
-			function.run();
-		} catch (Throwable e)
-		{
-			if (e.getClass() == clazz)
-				System.out.println("Successfully thrown " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
-			else fail("Error: expected: " + clazz.getSimpleName() + ", get: " + e.getClass().getSimpleName());
-			return;
-		}
-		fail("No exceptions thrown!");
-	}
 
 	@Test
 	public void testException()
