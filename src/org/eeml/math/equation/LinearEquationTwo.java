@@ -95,9 +95,9 @@ public class LinearEquationTwo
 	 */
 	public String toString()
 	{
-		return MessageFormat.format("{0}x" + (this.b1 > 0 ? "+" : "") + "{1}y={2}", this.a1, this.b1, this.c1)
+		return MessageFormat.format((this.a1 == 1 ? "" : this.a1 == -1 ? "-" : "{0}") + "x" + (this.b1 > 0 ? "+" : "") + (this.b1 == 1 ? "" : this.b1 == -1 ? "-" : "{1}") + "y={2}", this.a1, this.b1, this.c1)
 				+ "\n"
-				+ MessageFormat.format("{0}x" + (this.b2 > 0 ? "+" : "") + "{1}y={2}", this.a2, this.b2, this.c2)
+				+ MessageFormat.format((this.a2 == 1 ? "" : this.a2 == -1 ? "-" : "{0}") + "x" + (this.b2 > 0 ? "+" : "") + (this.b2 == 1 ? "" : this.b2 == -1 ? "-" : "{0}") + "y={2}", this.a2, this.b2, this.c2)
 				+ "\n"
 				+ MessageFormat.format("x={0}\ty={1}", this.x, this.y);
 	}
