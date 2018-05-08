@@ -1,6 +1,7 @@
 package org.eeml.math.equation;
 
 import org.eeml.math.exception.HighestCoefficientBeZeroException;
+import org.eeml.math.exception.NotSolvableException;
 
 import java.text.MessageFormat;
 import java.util.Objects;
@@ -60,6 +61,8 @@ public class LinearEquationTwo
 	{
 		if (a1 == 0 || a2 == 0 || b1 == 0 || b2 == 0)
 			throw new HighestCoefficientBeZeroException("Neither a nor b can be zero");
+		if (a1 * b2 == a2 * b1)
+			throw new NotSolvableException();
 		this.a1 = a1;
 		this.a2 = a2;
 		this.b1 = b1;
