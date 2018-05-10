@@ -4,7 +4,14 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-
+/**
+ * DivideZeroException refers to the mathematical computing error of mistakenly divide zero.
+ * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
+ *
+ * @author EULIR
+ * @see org.eeml.math;
+ * @since v1.0.0
+ */
 @SuppressWarnings("WeakerAccess")
 public class DivideZeroException extends ArithmeticException
 {
