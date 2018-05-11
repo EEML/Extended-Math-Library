@@ -12,6 +12,7 @@ public class LinearEquationTwoTest
 	LinearEquationTwo line = new LinearEquationTwo();
 	LinearEquationTwo line1 = new LinearEquationTwo(4, 1, 6, -1, 1, 1);
 	LinearEquationTwo line2 = new LinearEquationTwo(-2, 3, -5.3, 1.2, 2, 2);
+	LinearEquationTwo line3 = new LinearEquationTwo(1, 3.44, 3, -2, -3, 0);
 
 	@Test
 	public void testThrow()
@@ -43,5 +44,28 @@ public class LinearEquationTwoTest
 	{
 		assertEquals("4x+y=6\n-x+y=1\nx=1\ty=2", line1.toString());
 		assertEquals("-2x+3y=-5.3\n1.2x+1.2y=2\nx=2.184\ty=-0.311", line2.toString());
+		assertEquals("x+3.44y=3\n-2x-2y=0\nx=-2.32\ty=1.546", line3.toString());
+	}
+
+	@Test
+	public void testGetXSolution()
+	{
+		assertEquals(1, line1.getXSolution(), 0.001);
+		assertEquals(2.184, line2.getXSolution(), 0.001);
+		assertEquals(-2.32, line3.getXSolution(), 0.001);
+	}
+
+	@Test
+	public void testGetYSolution()
+	{
+		assertEquals(2, line1.getYSolution(), 0.001);
+		assertEquals(-0.311, line2.getYSolution(), 0.001);
+		assertEquals(1.546, line3.getYSolution(), 0.001);
+	}
+
+	@Test
+	public void testEquals()
+	{
+
 	}
 }

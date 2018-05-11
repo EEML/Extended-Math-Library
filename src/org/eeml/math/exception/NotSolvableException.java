@@ -20,7 +20,7 @@ public class NotSolvableException extends IllegalStateException
 
 	public NotSolvableException()
 	{
-		this("there's no proper solution for the given equation");
+		this("There's no proper solution for the given equation");
 	}
 
 	public NotSolvableException(Class clazz)
