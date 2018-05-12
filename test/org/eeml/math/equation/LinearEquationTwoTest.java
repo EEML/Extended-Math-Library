@@ -5,7 +5,7 @@ import org.eeml.math.exception.NotSolvableException;
 import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class LinearEquationTwoTest
 {
@@ -66,6 +66,18 @@ public class LinearEquationTwoTest
 	@Test
 	public void testEquals()
 	{
+		assertFalse(line1.equals(line2));
+		assertFalse(line3.equals(line));
+		assertEquals(new LinearEquationTwo(1, 2, 3, 4, 5, 6), new LinearEquationTwo(1, 2, 3, 4, 5, 6));
+		assertFalse(line.equals(new Object()));
+		LinearEquationTwo line4 = line1;
+		assertTrue(line1.equals(line4));
+	}
 
+	@Test
+	public void testHashcode()
+	{
+		assertNotEquals(line1.hashCode(), line2.hashCode());
+		assertEquals(line1.hashCode(), new LinearEquationTwo(4, 1, 6, -1, 1, 1).hashCode());
 	}
 }

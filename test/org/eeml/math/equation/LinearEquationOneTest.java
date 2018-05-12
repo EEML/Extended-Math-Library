@@ -37,5 +37,23 @@ public class LinearEquationOneTest
 	{
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0, 4));
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0.0, 0.342));
+		assertThrows(IllegalArgumentException.class, () -> new LinearEquationOne(0, 3, 4));
+		assertThrows(IllegalArgumentException.class, () -> new LinearEquationOne(0.00, 9, 9.56));
+		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(-2, 4, 0));
+		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(9, 6.6, 0));
+	}
+
+	@Test
+	public void testGetSolution()
+	{
+		assertEquals(3.5, line1.getSolution(), 0.001);
+		assertEquals(-0.33, line2.getSolution(), 0.01);
+		assertEquals(-0.682, line3.getSolution(), 0.001);
+		assertEquals(0, line4.getSolution(), 0.001);
+		assertEquals(-5, line5.getSolution(), 0.001);
+		assertEquals(0, line6.getSolution(), 0.001);
+		assertEquals(-12.843, line7.getSolution(), 0.001);
+		assertEquals(-8, line8.getSolution(), 0.001);
+		assertEquals(4, line9.getSolution(), 0.001);
 	}
 }
