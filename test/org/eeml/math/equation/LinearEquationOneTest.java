@@ -3,6 +3,7 @@ package org.eeml.math.equation;
 import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.assertEquals;
 
@@ -41,6 +42,7 @@ public class LinearEquationOneTest
 		assertThrows(IllegalArgumentException.class, () -> new LinearEquationOne(0.00, 9, 9.56));
 		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(-2, 4, 0));
 		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(9, 6.6, 0));
+		assertThrows(IllegalArgumentException.class, () -> line1.compareTo(new Object()));
 	}
 
 	@Test
@@ -55,5 +57,16 @@ public class LinearEquationOneTest
 		assertEquals(-12.843, line7.getSolution(), 0.001);
 		assertEquals(-8, line8.getSolution(), 0.001);
 		assertEquals(4, line9.getSolution(), 0.001);
+	}
+
+	@Test
+	public void testCompareTo()
+	{
+		assertTrue(line1.compareTo(line2) > 0);
+		assertTrue(line3.compareTo(line4) < 0);
+		assertTrue(line5.compareTo(line6) < 0);
+		assertTrue(line7.compareTo(line8) < 0);
+		LinearEquationOne linearEquationOne = line1;
+		assertEquals(0, line1.compareTo(linearEquationOne));
 	}
 }
