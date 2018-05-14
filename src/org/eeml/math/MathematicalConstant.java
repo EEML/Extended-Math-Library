@@ -9,7 +9,7 @@ package org.eeml.math;
  * @version v1.0.0
  * @see org.eeml.math
  */
-public class MathematicalConstant
+public final class MathematicalConstant
 {
 	/**
 	 * 0 (zero) is both a number and the numerical digit
@@ -185,7 +185,7 @@ public class MathematicalConstant
 	public static final double FERGENBAUM_CONSTANT = 2.502907875095892;
 
 	/**
-	 *The reciprocal Fibonacci constant, or ψ, is defined as the sum
+	 * The reciprocal Fibonacci constant, or ψ, is defined as the sum
 	 * of the reciprocals of the Fibonacci numbers:
 	 * ψ = 1/1 + 1/1 + 1/2 + 1/3 + 1/5 + 1/8 + 1/13 + 1/21 + 1/34 + ...
 	 * The ratio of successive terms in this sum tends to the
@@ -194,6 +194,10 @@ public class MathematicalConstant
 	 */
 	public static final double RECIPROCAL_FIBONACCI_CONSTANT = 3.359885666243177;
 
-	public MathematicalConstant()
-	{}
+	/**
+	 * Don't let anyone instantiate this class.
+	 */
+	private MathematicalConstant()
+	{
+	}
 }
