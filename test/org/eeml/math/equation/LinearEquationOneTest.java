@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class LinearEquationOneTest
 {
@@ -68,5 +68,22 @@ public class LinearEquationOneTest
 		assertTrue(line7.compareTo(line8) < 0);
 		LinearEquationOne linearEquationOne = line1;
 		assertEquals(0, line1.compareTo(linearEquationOne));
+	}
+
+	@Test
+	public void testEquals()
+	{
+		assertFalse(line1.equals(new Object()));
+		assertFalse(line1.equals(line2));
+		assertFalse(line1.equals(line7));
+		LinearEquationOne linearEquationOne = line2;
+		assertTrue(line2.equals(linearEquationOne));
+	}
+
+	@Test
+	public void testHashcode()
+	{
+		assertNotEquals(line1.hashCode(), line2.hashCode());
+		assertNotEquals(line3.hashCode(), line4.hashCode());
 	}
 }

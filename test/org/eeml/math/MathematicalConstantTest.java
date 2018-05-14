@@ -39,7 +39,5 @@ public class MathematicalConstantTest
 		assertEquals(1.451369234883381, MathematicalConstant.RAMANUJAN_SOLDNER_CONSTANT, 0.0001);
 		assertEquals(2.502907875095892, MathematicalConstant.FERGENBAUM_CONSTANT, 0.0001);
 		assertEquals(3.359885666243177, MathematicalConstant.RECIPROCAL_FIBONACCI_CONSTANT, 0.0001);
-
-		MathematicalConstant mathematicalConstant = new MathematicalConstant();
 	}
 }
