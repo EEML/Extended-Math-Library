@@ -27,7 +27,7 @@ public class Root implements Comparable
 		if (MathLibrary.isSquare(base))
 		{
 			this.coefficient = (int) Math.sqrt(base);
-			this.base = 0;
+			this.base = 1;
 			return;
 		}
 		this.coefficient = 1;
@@ -55,11 +55,6 @@ public class Root implements Comparable
 		return base;
 	}
 
-	public void setBase(int base)
-	{
-		this.base = base;
-	}
-
 	public Root multiply(Root a)
 	{
 		return new Root(this.coefficient * this.coefficient * this.base * a.coefficient * a.coefficient * a.base);
@@ -79,7 +74,7 @@ public class Root implements Comparable
 	@Override
 	public String toString()
 	{
-		if (this.base == 0)
+		if (this.base == 1)
 			return String.valueOf(this.coefficient);
 		else if (this.coefficient == 1)
 			return MessageFormat.format("√{0}", this.base);
