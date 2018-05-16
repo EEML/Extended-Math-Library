@@ -36,6 +36,15 @@ public class RootTest
 	}
 
 	@Test
+	public void testGetValue()
+	{
+		assertEquals(1.414, root1.getValue(), 0.001);
+		assertEquals(2, root2.getValue(), 0.001);
+		assertEquals(2.828, root3.getValue(), 0.001);
+		assertEquals(15.297, root4.getValue(), 0.001);
+	}
+
+	@Test
 	public void testSetterGetter()
 	{
 		assertEquals(1, root1.getCoefficient());
