@@ -56,6 +56,12 @@ public class RootTest
 	}
 
 	@Test
+	public void testEquals()
+	{
+
+	}
+
+	@Test
 	public void testSetterGetter()
 	{
 		assertEquals(1, root1.getCoefficient());
