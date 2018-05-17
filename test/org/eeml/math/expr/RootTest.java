@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RootTest
 {
@@ -42,6 +43,16 @@ public class RootTest
 		assertEquals(2, root2.getValue(), 0.001);
 		assertEquals(2.828, root3.getValue(), 0.001);
 		assertEquals(15.297, root4.getValue(), 0.001);
+	}
+
+	@Test
+	public void testCompareTo()
+	{
+		assertTrue(root1.compareTo(root2) < 0);
+		assertTrue(root2.compareTo(root3) < 0);
+		assertTrue(root2.compareTo(root1) > 0);
+		Root root = root4;
+		assertEquals(0, root.compareTo(root4));
 	}
 
 	@Test
