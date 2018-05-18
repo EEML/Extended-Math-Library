@@ -3,8 +3,7 @@ package org.eeml.math.expr;
 import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class RootTest
 {
@@ -58,7 +57,9 @@ public class RootTest
 	@Test
 	public void testEquals()
 	{
-
+		assertTrue(root4.equals(root4));
+		assertFalse(root1.equals(root2));
+		assertFalse(root2.equals(new Object()));
 	}
 
 	@Test
@@ -76,5 +77,11 @@ public class RootTest
 		assertEquals(2, root1.getCoefficient());
 		root2.setCoefficient(6);
 		assertEquals(6, root2.getCoefficient());
+	}
+
+	@Test
+	public void testHashcode()
+	{
+
 	}
 }
