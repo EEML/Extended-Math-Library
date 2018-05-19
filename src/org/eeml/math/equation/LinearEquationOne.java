@@ -25,7 +25,7 @@ public class LinearEquationOne implements Comparable
 	public LinearEquationOne(double a, double b)
 	{
 		if (a == 0)
-			throw new HighestCoefficientBeZeroException();
+			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		this.a = a;
 		this.b = b;
 		this.c = 0;
@@ -35,7 +35,7 @@ public class LinearEquationOne implements Comparable
 	public LinearEquationOne(int a, int b)
 	{
 		if (a == 0)
-			throw new HighestCoefficientBeZeroException();
+			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		this.a = (double) a;
 		this.b = (double) b;
 		this.c = 0;
