@@ -82,6 +82,7 @@ public class RootTest
 	@Test
 	public void testHashcode()
 	{
-
+		assertNotEquals(root1.hashCode(), root2.hashCode());
+		assertNotEquals(root3.hashCode(), root4.hashCode());
 	}
 }

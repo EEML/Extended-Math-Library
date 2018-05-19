@@ -23,12 +23,26 @@ public class MathLibrary
 		return b == 0 ? a : gcd(b, a % b);
 	}
 
+	/**
+	 * Return true if the given number is a perfect square.
+	 * False otherwise.
+	 *
+	 * @param a given number
+	 * @return true or false
+	 */
 	public static boolean isSquare(int a)
 	{
 		int b = (int) Math.sqrt(a);
 		return b * b == a;
 	}
 
+	/**
+	 * Return true if the given number is a perfect square.
+	 * False otherwise.
+	 *
+	 * @param a given number
+	 * @return true or false
+	 */
 	public static boolean isSquare(long a)
 	{
 		long b = (long) Math.sqrt(a);
