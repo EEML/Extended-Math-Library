@@ -10,8 +10,8 @@ public class QuadraticEquation
 
 	private int delta;
 
-	private int x1;
-	private int x2;
+	private double x1;
+	private double x2;
 
 	/**
 	 * form the quadratic equation in the form of
@@ -29,5 +29,29 @@ public class QuadraticEquation
 		this.b = b;
 		this.c = c;
 		this.delta = b * b - 4 * a * c;
+		if (delta == 0)
+		{
+			x1 = -b / (2 * a);
+			x2 = x1;
+		} else
+		{
+			x1 = (-b + Math.sqrt(delta)) / (2 * a);
+			x2 = (-b - Math.sqrt(delta)) / (2 * a);
+		}
+	}
+
+	public double getFirstSolution()
+	{
+		return x1;
+	}
+
+	public double getSecondSolution()
+	{
+		return x2;
+	}
+
+	public int numberOfSolution()
+	{
+		return delta == 0 ? 1 : 2;
 	}
 }
