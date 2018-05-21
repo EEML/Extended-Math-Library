@@ -29,6 +29,7 @@ public class QuadraticEquation
 		this.b = b;
 		this.c = c;
 		this.delta = b * b - 4 * a * c;
+
 		if (delta == 0)
 		{
 			x1 = -b / (2 * a);
