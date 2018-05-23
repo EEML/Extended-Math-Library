@@ -38,6 +38,13 @@ public class ComplexNumber
 		return new ComplexNumber(this.real + a, this.imaginary);
 	}
 
+	public ComplexNumber multiply(ComplexNumber a)
+	{
+		double real = this.real * a.real - this.imaginary * a.imaginary;
+		double imaginary = this.real * a.imaginary + this.imaginary * a.real;
+		return new ComplexNumber(real, imaginary);
+	}
+
 	/**
 	 * toString method overridden from super class
 	 *
