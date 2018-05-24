@@ -45,6 +45,11 @@ public class ComplexNumber
 		return new ComplexNumber(real, imaginary);
 	}
 
+	public ComplexNumber multiply(double a)
+	{
+		return new ComplexNumber(this.real * a, this.imaginary * a);
+	}
+
 	/**
 	 * toString method overridden from super class
 	 *
