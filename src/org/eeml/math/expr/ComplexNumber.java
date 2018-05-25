@@ -23,21 +23,55 @@ public class ComplexNumber
 		this.imaginary = imaginary;
 	}
 
+	/**
+	 * @param a the addend complex number.
+	 * @return a new complex number which stands for the sum of two complex numbers.
+	 */
 	public ComplexNumber add(ComplexNumber a)
 	{
 		return new ComplexNumber(this.real + a.real, this.imaginary + a.imaginary);
 	}
 
+	/**
+	 * @param a the addend integer number.
+	 * @return a new complex number which stands for the sum of two numbers.
+	 */
 	public ComplexNumber add(int a)
 	{
 		return new ComplexNumber(this.real + a, this.imaginary);
 	}
 
+	/**
+	 * @param a the addend real number.
+	 * @return a new complex number which stands for the sum of two numbers.
+	 */
 	public ComplexNumber add(double a)
 	{
 		return new ComplexNumber(this.real + a, this.imaginary);
 	}
 
+	/**
+	 * @param a the minuend complex number.
+	 * @return a new complex number which stands for the difference between two complex numbers.
+	 */
+	public ComplexNumber subtract(ComplexNumber a)
+	{
+		return new ComplexNumber(this.real - a.real, this.imaginary - a.imaginary);
+	}
+
+	/**
+	 * @param a the minuend real number.
+	 * @return a new complex number which stands for the difference between two numbers.
+	 */
+	public ComplexNumber subtract(double a)
+	{
+		return new ComplexNumber(this.real - a, this.imaginary);
+	}
+
+	/**
+	 * @param a the multiplier complex number.
+	 * @return a new complex number which stands for the product of two complex numbers.
+	 */
 	public ComplexNumber multiply(ComplexNumber a)
 	{
 		double real = this.real * a.real - this.imaginary * a.imaginary;
@@ -45,10 +79,35 @@ public class ComplexNumber
 		return new ComplexNumber(real, imaginary);
 	}
 
+	/**
+	 * @param a the multiplier real number.
+	 * @return a new complex number which stands for the product of two numbers.
+	 */
 	public ComplexNumber multiply(double a)
 	{
 		return new ComplexNumber(this.real * a, this.imaginary * a);
 	}
+
+	/**
+	 * @param a the dividend complex number.
+	 * @return a new complex number which stands for the quotient of two complex numbers.
+	 */
+	public ComplexNumber divide(ComplexNumber a)
+	{
+		double real = (this.real * a.real + this.imaginary * a.imaginary) / (a.real * a.real + a.imaginary * a.imaginary);
+		double imaginary = (this.imaginary * a.real - this.real * a.imaginary) / (a.real * a.real + a.imaginary + a.imaginary);
+		return new ComplexNumber(real, imaginary);
+	}
+
+	/**
+	 * @param a the dividend real number.
+	 * @return a new complex number which stands for the quotient of two numbers.
+	 */
+	public ComplexNumber divide(double a)
+	{
+		return new ComplexNumber(this.real / a, this.imaginary / a);
+	}
+
 
 	/**
 	 * toString method overridden from super class
@@ -58,6 +117,10 @@ public class ComplexNumber
 	 */
 	public String toString()
 	{
+		if (this.real == 0 && this.imaginary == 0)
+			return "0";
+		if (this.real == 0)
+			return MessageFormat.format((this.imaginary == 1 ? "" : "{0}") + "i", this.imaginary);
 		if (this.imaginary == 0)
 			return MessageFormat.format("{0}", this.real);
 		return MessageFormat.format("{0}" + (this.imaginary > 0 ? "+" : "") + (this.imaginary == 1 ? "" : "{1}") + "i", this.real, this.imaginary);
