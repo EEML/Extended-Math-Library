@@ -115,6 +115,7 @@ public class ComplexNumber
 	 * @return return String formed in
 	 * real + imaginary + "i"
 	 */
+	@Override
 	public String toString()
 	{
 		if (this.real == 0 && this.imaginary == 0)
@@ -124,5 +125,23 @@ public class ComplexNumber
 		if (this.imaginary == 0)
 			return MessageFormat.format("{0}", this.real);
 		return MessageFormat.format("{0}" + (this.imaginary > 0 ? "+" : "") + (this.imaginary == 1 ? "" : "{1}") + "i", this.real, this.imaginary);
+	}
+
+	/**
+	 * equals method overridden form super class
+	 *
+	 * @param obj the compared object
+	 * @return true if two complex numbers are equal, otherwise false.
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj == this)
+			return true;
+		if (!(obj instanceof ComplexNumber))
+			return false;
+		ComplexNumber complexNumber = (ComplexNumber) obj;
+		return this.real == complexNumber.real
+				&& this.imaginary == complexNumber.imaginary;
 	}
 }
