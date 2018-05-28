@@ -1,6 +1,7 @@
 package org.eeml.math.expr;
 
 import java.text.MessageFormat;
+import java.util.Objects;
 
 /**
  * This class mainly implements the math expression complex number including methods like add,
@@ -143,5 +144,16 @@ public class ComplexNumber
 		ComplexNumber complexNumber = (ComplexNumber) obj;
 		return this.real == complexNumber.real
 				&& this.imaginary == complexNumber.imaginary;
+	}
+
+	/**
+	 * hashCode method overridden from super class
+	 *
+	 * @return hashCode of the complex number.
+	 */
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(real, imaginary);
 	}
 }
