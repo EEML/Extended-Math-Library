@@ -15,6 +15,7 @@ public class ComplexNumberTest
 	private ComplexNumber complexNumber7 = new ComplexNumber(-323, 0);
 	private ComplexNumber complexNumber8 = new ComplexNumber(1, 0);
 	private ComplexNumber complexNumber9 = new ComplexNumber(0, 0);
+	private ComplexNumber complexNumber10 = new ComplexNumber(3, -1);
 
 	@Test
 	public void testToString()
@@ -28,5 +29,6 @@ public class ComplexNumberTest
 		assertEquals("-323", complexNumber7.toString());
 		assertEquals("1", complexNumber8.toString());
 		assertEquals("0", complexNumber9.toString());
+		assertEquals("3-i", complexNumber10.toString());
 	}
 }

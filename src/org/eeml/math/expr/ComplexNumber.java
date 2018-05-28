@@ -122,10 +122,10 @@ public class ComplexNumber
 		if (this.real == 0 && this.imaginary == 0)
 			return "0";
 		if (this.real == 0)
-			return MessageFormat.format((this.imaginary == 1 ? "" : "{0}") + "i", this.imaginary);
+			return MessageFormat.format((this.imaginary == 1 ? "" : (this.imaginary == -1 ? "-" : "{0}")) + "i", this.imaginary);
 		if (this.imaginary == 0)
 			return MessageFormat.format("{0}", this.real);
-		return MessageFormat.format("{0}" + (this.imaginary > 0 ? "+" : "") + (this.imaginary == 1 ? "" : "{1}") + "i", this.real, this.imaginary);
+		return MessageFormat.format("{0}" + (this.imaginary > 0 ? "+" : "") + (this.imaginary == 1 ? "" : (this.imaginary == -1 ? "-" : "{1}")) + "i", this.real, this.imaginary);
 	}
 
 	/**
