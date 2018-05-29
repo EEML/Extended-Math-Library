@@ -1,6 +1,7 @@
 package org.eeml.math.equation;
 
 import org.eeml.math.exception.HighestCoefficientBeZeroException;
+import org.eeml.math.expr.ComplexNumber;
 
 public class QuadraticEquation
 {
@@ -10,8 +11,8 @@ public class QuadraticEquation
 
 	private int delta;
 
-	private double x1;
-	private double x2;
+	private ComplexNumber x1;
+	private ComplexNumber x2;
 
 	/**
 	 * form the quadratic equation in the form of
@@ -32,21 +33,21 @@ public class QuadraticEquation
 
 		if (delta == 0)
 		{
-			x1 = -b / (2 * a);
+			x1 = new ComplexNumber(-b / (2 * a), 0);
 			x2 = x1;
 		} else
 		{
-			x1 = (-b + Math.sqrt(delta)) / (2 * a);
-			x2 = (-b - Math.sqrt(delta)) / (2 * a);
+			x1 = new ComplexNumber((-b + Math.sqrt(delta)) / (2 * a), 0);
+			x2 = new ComplexNumber((-b - Math.sqrt(delta)) / (2 * a), 0);
 		}
 	}
 
-	public double getFirstSolution()
+	public ComplexNumber getFirstSolution()
 	{
 		return x1;
 	}
 
-	public double getSecondSolution()
+	public ComplexNumber getSecondSolution()
 	{
 		return x2;
 	}
