@@ -44,5 +44,15 @@ public class ComplexNumberTest
 		assertEquals("7.345-i", complexNumber10.add(4.345).toString());
 	}
 
-
+	@Test
+	public void testSubtract()
+	{
+		assertEquals("3-i", complexNumber10.subtract(complexNumber9).toString());
+		assertEquals("324", complexNumber8.subtract(complexNumber7).toString());
+		assertEquals("-1.01i", complexNumber6.subtract(complexNumber5).toString());
+		assertEquals("-12-2i", complexNumber4.subtract(8).toString());
+		assertEquals("-1+8.876i", complexNumber3.subtract(-3).toString());
+		assertEquals("0.655-0.4i", complexNumber2.subtract(4.345).toString());
+		assertEquals("8+9.5i", complexNumber1.subtract(-5.6).toString());
+	}
 }

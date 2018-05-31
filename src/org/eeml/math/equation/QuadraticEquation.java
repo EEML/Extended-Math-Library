@@ -35,10 +35,13 @@ public class QuadraticEquation
 		{
 			x1 = new ComplexNumber(-b / (2 * a), 0);
 			x2 = x1;
-		} else
+		} else if (delta > 0)
 		{
 			x1 = new ComplexNumber((-b + Math.sqrt(delta)) / (2 * a), 0);
 			x2 = new ComplexNumber((-b - Math.sqrt(delta)) / (2 * a), 0);
+		} else
+		{
+			//x1 = new ComplexNumber();
 		}
 	}
 
@@ -50,10 +53,5 @@ public class QuadraticEquation
 	public ComplexNumber getSecondSolution()
 	{
 		return x2;
-	}
-
-	public int numberOfSolution()
-	{
-		return delta == 0 ? 1 : 2;
 	}
 }
