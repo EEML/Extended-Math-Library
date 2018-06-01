@@ -55,4 +55,10 @@ public class ComplexNumberTest
 		assertEquals("0.655-0.4i", complexNumber2.subtract(4.345).toString());
 		assertEquals("8+9.5i", complexNumber1.subtract(-5.6).toString());
 	}
+
+	@Test
+	public void testMultiply()
+	{
+		assertEquals("16.7+26.1i", complexNumber1.multiply(complexNumber10).toString());
+	}
 }
