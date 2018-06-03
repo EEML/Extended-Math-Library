@@ -1,5 +1,7 @@
 package org.eeml.math.expr;
 
+import org.eeml.math.exception.DivideZeroException;
+
 import java.text.MessageFormat;
 import java.util.Objects;
 
@@ -95,8 +97,10 @@ public class ComplexNumber
 	 */
 	public ComplexNumber divide(ComplexNumber a)
 	{
+		if (a.equals(new ComplexNumber(0, 0)))
+			throw new DivideZeroException("Complex number cannot divide zero.");
 		double real = (this.real * a.real + this.imaginary * a.imaginary) / (a.real * a.real + a.imaginary * a.imaginary);
-		double imaginary = (this.imaginary * a.real - this.real * a.imaginary) / (a.real * a.real + a.imaginary + a.imaginary);
+		double imaginary = (this.imaginary * a.real - this.real * a.imaginary) / (a.real * a.real + a.imaginary * a.imaginary);
 		return new ComplexNumber(real, imaginary);
 	}
 
@@ -106,6 +110,8 @@ public class ComplexNumber
 	 */
 	public ComplexNumber divide(double a)
 	{
+		if (a == 0)
+			throw new DivideZeroException("Complex number cannot divide zero.");
 		return new ComplexNumber(this.real / a, this.imaginary / a);
 	}
 
