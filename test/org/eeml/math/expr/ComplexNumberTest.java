@@ -72,6 +72,11 @@ public class ComplexNumberTest
 	public void testDivide()
 	{
 		assertEquals("0.788-0.626i", complexNumber1.divide(complexNumber3).toString());
-		assertEquals("", complexNumber2.divide(complexNumber4).toString());
+		assertEquals("-0.96+0.58i", complexNumber2.divide(complexNumber4).toString());
+		assertEquals("-887.6-400i", complexNumber3.divide(complexNumber6).toString());
+		assertEquals("-44.247", complexNumber7.divide(7.3).toString());
+		assertEquals("-0.303", complexNumber8.divide(-3.3).toString());
+		assertEquals("0", complexNumber9.divide(3).toString());
+		assertEquals("-0.333+0.111i", complexNumber10.divide(-9).toString());
 	}
 }
