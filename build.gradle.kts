@@ -5,8 +5,8 @@ import java.util.concurrent.*
 import java.util.stream.Collectors
 
 // by ice1000
-val comingVersion = "0.0.1"
-val packageName = "indi.eulir"
+val comingVersion = "1.0.0"
+val packageName = "org.eeml"
 
 group = packageName
 version = comingVersion

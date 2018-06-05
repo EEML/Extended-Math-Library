@@ -1,8 +1,10 @@
 package org.eeml.math.expr;
 
+import org.eeml.math.exception.DivideZeroException;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.junit.Assert.*;
 
 public class ComplexNumberTest
 {
@@ -78,5 +80,37 @@ public class ComplexNumberTest
 		assertEquals("-0.303", complexNumber8.divide(-3.3).toString());
 		assertEquals("0", complexNumber9.divide(3).toString());
 		assertEquals("-0.333+0.111i", complexNumber10.divide(-9).toString());
+	}
+
+	@Test
+	public void testEquals()
+	{
+		assertFalse(complexNumber1.equals(complexNumber2));
+		assertFalse(complexNumber3.equals(new Object()));
+		assertFalse(complexNumber4.equals(complexNumber5));
+		ComplexNumber complexNumber = complexNumber6;
+		assertTrue(complexNumber6.equals(complexNumber));
+		assertFalse(complexNumber7.equals(complexNumber8));
+		ComplexNumber complexNumber11 = new ComplexNumber(3, -1);
+		assertTrue(complexNumber10.equals(complexNumber11));
+	}
+
+	@Test
+	public void testThrows()
+	{
+		assertThrows(DivideZeroException.class, () -> complexNumber1.divide(complexNumber9));
+		assertThrows(DivideZeroException.class, () -> complexNumber2.divide(0));
+	}
+
+	@Test
+	public void testHashcode()
+	{
+		assertNotEquals(complexNumber1.hashCode(), complexNumber2.hashCode());
+		assertNotEquals(complexNumber3.hashCode(), complexNumber4.hashCode());
+		assertNotEquals(complexNumber5.hashCode(), complexNumber6.hashCode());
+		assertNotEquals(complexNumber7.hashCode(), complexNumber8.hashCode());
+		assertNotEquals(complexNumber9.hashCode(), complexNumber10.hashCode());
+		ComplexNumber complexNumber = new ComplexNumber(3, -1);
+		assertEquals(complexNumber10.hashCode(), complexNumber.hashCode());
 	}
 }
