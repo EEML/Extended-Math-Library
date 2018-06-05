@@ -38,8 +38,8 @@ public class LinearEquationOneTest
 	{
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0, 4));
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0.0, 0.342));
-		assertThrows(IllegalArgumentException.class, () -> new LinearEquationOne(0, 3, 4));
-		assertThrows(IllegalArgumentException.class, () -> new LinearEquationOne(0.00, 9, 9.56));
+		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0, 3, 4));
+		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0.00, 9, 9.56));
 		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(-2, 4, 0));
 		assertThrows(IllegalStateException.class, () -> new LinearEquationOne(9, 6.6, 0));
 		assertThrows(IllegalArgumentException.class, () -> line1.compareTo(new Object()));

@@ -56,6 +56,9 @@ public class LinearEquationTwo
 	 * @param c2 constant coefficient in the first equation
 	 * @throws HighestCoefficientBeZeroException when {@code a1}, {@code b1},
 	 *                                           {@code a2} or {@code b2} is zero
+	 * @throws NotSolvableException              when two equations are the same(including the
+	 *                                           situation that they have some coefficient
+	 *                                           before the parameters).
 	 */
 	public LinearEquationTwo(double a1, double b1, double c1, double a2, double b2, double c2)
 	{
@@ -74,7 +77,9 @@ public class LinearEquationTwo
 	}
 
 	/**
-	 * @return x
+	 * getter of the solution x
+	 *
+	 * @return solution x
 	 */
 	public double getXSolution()
 	{
@@ -82,7 +87,9 @@ public class LinearEquationTwo
 	}
 
 	/**
-	 * @return y
+	 * getter of the solution y
+	 *
+	 * @return solution y
 	 */
 	public double getYSolution()
 	{

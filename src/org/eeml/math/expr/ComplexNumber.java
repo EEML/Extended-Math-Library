@@ -94,6 +94,7 @@ public class ComplexNumber
 	/**
 	 * @param a the dividend complex number.
 	 * @return a new complex number which stands for the quotient of two complex numbers.
+	 * @throws DivideZeroException when a complex number is dividing zero.
 	 */
 	public ComplexNumber divide(ComplexNumber a)
 	{
@@ -107,6 +108,7 @@ public class ComplexNumber
 	/**
 	 * @param a the dividend real number.
 	 * @return a new complex number which stands for the quotient of two numbers.
+	 * @throws DivideZeroException when a complex number is dividing zero.
 	 */
 	public ComplexNumber divide(double a)
 	{
@@ -114,7 +116,6 @@ public class ComplexNumber
 			throw new DivideZeroException("Complex number cannot divide zero.");
 		return new ComplexNumber(this.real / a, this.imaginary / a);
 	}
-
 
 	/**
 	 * toString method overridden from super class

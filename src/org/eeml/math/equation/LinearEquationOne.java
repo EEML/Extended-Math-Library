@@ -22,6 +22,14 @@ public class LinearEquationOne implements Comparable
 	private double c;
 	private double x;
 
+	/**
+	 * constructor of Linear equation one.
+	 * a, b represent parameters in ax+b=0, respectively.
+	 *
+	 * @param a a
+	 * @param b b
+	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
+	 */
 	public LinearEquationOne(double a, double b)
 	{
 		if (a == 0)
@@ -32,6 +40,14 @@ public class LinearEquationOne implements Comparable
 		this.x = -this.b / this.a;
 	}
 
+	/**
+	 * constructor of Linear equation one.
+	 * a, b represent parameters in ax+b=0, respectively.
+	 *
+	 * @param a a
+	 * @param b b
+	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
+	 */
 	public LinearEquationOne(int a, int b)
 	{
 		if (a == 0)
@@ -42,10 +58,20 @@ public class LinearEquationOne implements Comparable
 		this.x = -this.b / this.a;
 	}
 
+	/**
+	 * constructor of Linear equation one.
+	 * a, b, c represent parameters in ax+b=c, respectively.
+	 *
+	 * @param a a
+	 * @param b b
+	 * @param c c
+	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
+	 * @throws IllegalStateException             when {@code c} equals zero.
+	 */
 	public LinearEquationOne(double a, double b, double c)
 	{
 		if (a == 0)
-			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		if (Math.abs(c) < 0.00001)
 			throw new IllegalStateException("You should use another constructor");
 		this.a = a;
@@ -54,10 +80,21 @@ public class LinearEquationOne implements Comparable
 		this.x = (this.c - this.b) / this.a;
 	}
 
+
+	/**
+	 * constructor of Linear equation one.
+	 * a, b, c represent parameters in ax+b=c, respectively.
+	 *
+	 * @param a a
+	 * @param b b
+	 * @param c c
+	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
+	 * @throws IllegalStateException             when {@code c} equals zero.
+	 */
 	public LinearEquationOne(int a, int b, int c)
 	{
 		if (a == 0)
-			throw new IllegalArgumentException("a should not be 0 since a is the highest-degree coefficient");
+			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		if (Math.abs(c) < 0.00001)
 			throw new IllegalStateException("You should use another constructor");
 		this.a = (double) a;
@@ -66,6 +103,12 @@ public class LinearEquationOne implements Comparable
 		this.x = (this.c - this.b) / this.a;
 	}
 
+
+	/**
+	 * getter of the solution x.
+	 *
+	 * @return solution x
+	 */
 	public double getSolution()
 	{
 		return x;
