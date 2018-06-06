@@ -37,14 +37,7 @@ public class LinearEquationTwo
 	 */
 	public LinearEquationTwo()
 	{
-		this.a1 = 0;
-		this.a2 = 0;
-		this.b1 = 0;
-		this.b2 = 0;
-		this.c1 = 0;
-		this.c2 = 0;
-		this.x = 0;
-		this.y = 0;
+		this(0, 0, 0, 0, 0, 0);
 	}
 
 	/**

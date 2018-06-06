@@ -33,7 +33,7 @@ public class QuadraticEquation
 	 * @param a coefficient of quadratic term
 	 * @param b coefficient of linear term
 	 * @param c constant coefficient
-	 * @throws HighestCoefficientBeZeroException when a equals zero.
+	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 */
 	public QuadraticEquation(int a, int b, int c)
 	{
@@ -45,7 +45,7 @@ public class QuadraticEquation
 		this.delta = b * b - 4 * a * c;
 		if (delta == 0)
 		{
-			x1 = new ComplexNumber(-b / (2 * a), 0);
+			x1 = new ComplexNumber(-b / (double) (2 * a), 0);
 			x2 = x1;
 		} else if (delta > 0)
 		{
@@ -53,8 +53,8 @@ public class QuadraticEquation
 			x2 = new ComplexNumber((-b - Math.sqrt(delta)) / (2 * a), 0);
 		} else
 		{
-			x1 = new ComplexNumber(-b / (2 * a), Math.sqrt(-delta) / (2 * a));
-			x2 = new ComplexNumber(-b / (2 * a), -Math.sqrt(-delta) / (2 * a));
+			x1 = new ComplexNumber(-b / (double) (2 * a), Math.sqrt(-delta) / (2 * a));
+			x2 = new ComplexNumber(-b / (double) (2 * a), -Math.sqrt(-delta) / (2 * a));
 		}
 	}
 
