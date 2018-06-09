@@ -5,7 +5,7 @@ import org.eeml.math.expr.ComplexNumber;
 import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class QuadraticEquationTest
 {
@@ -52,6 +52,57 @@ public class QuadraticEquationTest
 	public void testGetFirstSolution()
 	{
 		assertEquals(new ComplexNumber(-1, 0), quadraticEquation1.getFirstSolution());
+		assertEquals(new ComplexNumber(0, 0), quadraticEquation2.getFirstSolution());
+		assertEquals(new ComplexNumber(-1.5, 1.323), quadraticEquation3.getFirstSolution());
+		assertEquals(new ComplexNumber(-1.193, 0), quadraticEquation4.getFirstSolution());
+		assertEquals(new ComplexNumber(-1.5, 0), quadraticEquation5.getFirstSolution());
+		assertEquals(new ComplexNumber(2, 0), quadraticEquation6.getFirstSolution());
+		assertEquals(new ComplexNumber(-0.111, -0.314), quadraticEquation7.getFirstSolution());
+	}
 
+	@Test
+	public void testGetSecondSolution()
+	{
+		assertEquals(new ComplexNumber(-1, 0), quadraticEquation1.getSecondSolution());
+		assertEquals(new ComplexNumber(0, 0), quadraticEquation2.getSecondSolution());
+		assertEquals(new ComplexNumber(-1.5, -1.323), quadraticEquation3.getSecondSolution());
+		assertEquals(new ComplexNumber(4.193, 0), quadraticEquation4.getSecondSolution());
+		assertEquals(new ComplexNumber(1.5, 0), quadraticEquation5.getSecondSolution());
+		assertEquals(new ComplexNumber(0, 0), quadraticEquation6.getSecondSolution());
+		assertEquals(new ComplexNumber(-0.111, 0.314), quadraticEquation7.getSecondSolution());
+	}
+
+	@Test
+	public void testGetDelta()
+	{
+		assertEquals(0, quadraticEquation1.getDelta());
+		assertEquals(0, quadraticEquation2.getDelta());
+		assertEquals(-7, quadraticEquation3.getDelta());
+		assertEquals(29, quadraticEquation4.getDelta());
+		assertEquals(144, quadraticEquation5.getDelta());
+		assertEquals(100, quadraticEquation6.getDelta());
+		assertEquals(-32, quadraticEquation7.getDelta());
+	}
+
+	@Test
+	public void testEquals()
+	{
+		QuadraticEquation quadraticEquation = quadraticEquation1;
+		assertTrue(quadraticEquation.equals(quadraticEquation1));
+		assertFalse(quadraticEquation2.equals(new Object()));
+		assertFalse(quadraticEquation3.equals(quadraticEquation4));
+		assertFalse(quadraticEquation5.equals(quadraticEquation6));
+		QuadraticEquation quadraticEquation8 = new QuadraticEquation(-9, -2, -1);
+		assertTrue(quadraticEquation7.equals(quadraticEquation8));
+	}
+
+	@Test
+	public void testHashcode()
+	{
+		QuadraticEquation quadraticEquation8 = new QuadraticEquation(-9, -2, -1);
+		assertEquals(quadraticEquation7.hashCode(), quadraticEquation8.hashCode());
+		assertNotEquals(quadraticEquation1.hashCode(), quadraticEquation2.hashCode());
+		assertNotEquals(quadraticEquation3.hashCode(), quadraticEquation4.hashCode());
+		assertNotEquals(quadraticEquation5.hashCode(), quadraticEquation6.hashCode());
 	}
 }

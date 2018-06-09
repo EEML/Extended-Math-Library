@@ -83,7 +83,7 @@ public class QuadraticEquation
 	 *
 	 * @return delta
 	 */
-	public double getDelta()
+	public int getDelta()
 	{
 		return delta;
 	}

@@ -83,6 +83,32 @@ public class ComplexNumberTest
 	}
 
 	@Test
+	public void testTransferable()
+	{
+		assertFalse(complexNumber1.transferable());
+		assertFalse(complexNumber2.transferable());
+		assertFalse(complexNumber3.transferable());
+		assertFalse(complexNumber4.transferable());
+		assertFalse(complexNumber5.transferable());
+		assertFalse(complexNumber6.transferable());
+		assertTrue(complexNumber7.transferable());
+		assertTrue(complexNumber8.transferable());
+		assertTrue(complexNumber9.transferable());
+		assertFalse(complexNumber10.transferable());
+	}
+
+	@Test
+	public void testToDouble()
+	{
+		if (complexNumber7.transferable())
+			assertEquals(-323, complexNumber7.toDouble(), 0.001);
+		if (complexNumber8.transferable())
+			assertEquals(1, complexNumber8.toDouble(), 0.001);
+		if (complexNumber9.transferable())
+			assertEquals(0, complexNumber9.toDouble(), 0.001);
+	}
+
+	@Test
 	public void testEquals()
 	{
 		assertFalse(complexNumber1.equals(complexNumber2));
@@ -100,6 +126,8 @@ public class ComplexNumberTest
 	{
 		assertThrows(DivideZeroException.class, () -> complexNumber1.divide(complexNumber9));
 		assertThrows(DivideZeroException.class, () -> complexNumber2.divide(0));
+		assertThrows(IllegalArgumentException.class, () -> complexNumber1.toDouble());
+		assertThrows(IllegalArgumentException.class, () -> complexNumber2.toDouble());
 	}
 
 	@Test

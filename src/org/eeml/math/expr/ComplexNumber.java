@@ -118,6 +118,33 @@ public class ComplexNumber
 	}
 
 	/**
+	 * To judge whether the complex number can be transferred into a double value.
+	 * When this complex number has no imaginary part, we can say it is transferable.
+	 *
+	 * @return true if the complex number is transferable, false otherwise.
+	 */
+	public boolean transferable()
+	{
+		return imaginary == 0;
+	}
+
+	/**
+	 * Transfer the complex number into the double value. If and only if the complex
+	 * number is transferable can it be successfully be changed(the complex number
+	 * should have no imaginary part when it can be transferred). Therefore, the method
+	 * {@code transferable} should almost always be called before calling method {@code toDouble}.
+	 *
+	 * @return double value of real part of this complex number.
+	 * @throws IllegalStateException when this complex number has imaginary part.
+	 */
+	public double toDouble()
+	{
+		if (transferable())
+			return real;
+		throw new IllegalArgumentException("This complex number is not transferable.");
+	}
+
+	/**
 	 * toString method overridden from super class
 	 *
 	 * @return return String formed in
@@ -149,8 +176,8 @@ public class ComplexNumber
 		if (!(obj instanceof ComplexNumber))
 			return false;
 		ComplexNumber complexNumber = (ComplexNumber) obj;
-		return this.real == complexNumber.real
-				&& this.imaginary == complexNumber.imaginary;
+		return Math.abs(this.real - complexNumber.real) < 0.001
+				&& Math.abs(this.imaginary - complexNumber.imaginary) < 0.001;
 	}
 
 	/**
