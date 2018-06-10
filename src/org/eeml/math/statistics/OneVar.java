@@ -2,6 +2,8 @@ package org.eeml.math.statistics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class OneVar
 {
@@ -73,21 +75,43 @@ public class OneVar
 
 	public double getMin()
 	{
-		return min = temp[0];
+		min = temp[0];
+		return min;
 	}
 
 	public double getMax()
 	{
-		return max = temp[temp.length - 1];
+		max = temp[temp.length - 1];
+		return max;
 	}
 
 	public double getMode()
 	{
+		HashSet<Double> uniqueData = new HashSet<>(stats);
+		HashMap<Integer, Double> map = new HashMap<>();
+		int[] count = new int[uniqueData.size()];
+		int j = 0;
+		for (Double d : uniqueData)
+		{
+			for (Double double2 : stats)
+				if (d.equals(double2))
+					count[j]++;
+			map.put(count[j], d);
+			j++;
+		}
+		int k = 0;
+		for (int i : count)
+			k = Math.max(k, i);
+		mode = map.get(k);
 		return mode;
 	}
 
 	public double getMedian()
 	{
+		int len = temp.length;
+		if (len % 2 == 0)
+			return (temp[len / 2] + temp[len / 2 + 1]) / 2;
+		median = temp[len / 2];
 		return median;
 	}
 }
