@@ -10,19 +10,6 @@ public class OneVar
 {
 	private ArrayList<Double> stats;
 
-	private double mean;
-	private double sum;
-	private double sumSquared;
-	private double sampleStandardDeviation;
-	private double standardDeviation;
-	private int totality;
-	private double min;
-	private double max;
-	private double mode;
-	private double median;
-	private double Q1;
-	private double Q3;
-
 	private Double[] temp;
 
 	public OneVar()
@@ -33,59 +20,58 @@ public class OneVar
 	public OneVar(ArrayList<Double> stats)
 	{
 		this.stats = stats;
-		for (double d : this.stats)
-		{
-			sum += d;
-			sumSquared += d * d;
-		}
-		totality = this.stats.size();
-		mean = sum / totality;
-		sampleStandardDeviation = Math.sqrt(sumSquared / (totality - 1));
-		standardDeviation = Math.sqrt(sumSquared / totality);
 		temp = stats.toArray(temp);
 		Arrays.sort(temp);
 	}
 
 	public double getMean()
 	{
-		return mean;
+		return getSum() / getTotality();
 	}
 
 	public double getSumSquared()
 	{
+		double sumSquared = 0;
+		for (double a : stats)
+			sumSquared += a;
 		return sumSquared;
 	}
 
 	public double getSampleStandardDeviation()
 	{
-		return sampleStandardDeviation;
+		return getStandardDeviation() * getTotality() / (getTotality() - 1);
 	}
 
 	public double getStandardDeviation()
 	{
-		return standardDeviation;
+		double mean = getMean();
+		double sd = 0;
+		for (double a : stats)
+			sd += (a - mean) * (a - mean);
+		return sd / getTotality();
 	}
 
 	public double getSum()
 	{
+		double sum = 0;
+		for (double a : stats)
+			sum += a;
 		return sum;
 	}
 
 	public int getTotality()
 	{
-		return totality;
+		return stats.size();
 	}
 
 	public double getMin()
 	{
-		min = temp[0];
-		return min;
+		return temp[0];
 	}
 
 	public double getMax()
 	{
-		max = temp[temp.length - 1];
-		return max;
+		return temp[temp.length - 1];
 	}
 
 	public double getMode()
@@ -105,27 +91,25 @@ public class OneVar
 		int k = 0;
 		for (int i : count)
 			k = Math.max(k, i);
-		mode = map.get(k);
-		return mode;
+		return map.get(k);
 	}
 
 	public double getMedian()
 	{
 		int len = temp.length;
 		if (len % 2 == 0)
-			return (temp[len / 2] + temp[len / 2 + 1]) / 2;
-		median = temp[len / 2];
-		return median;
+			return (temp[len >> 2] + temp[len >> 2 + 1]) / 2;
+		return temp[len >> 2];
 	}
 
 	public double getQ1()
 	{
-		return Q1;
+		return 0;
 	}
 
 	public double getQ3()
 	{
-		return Q3;
+		return 0;
 	}
 
 	@Override
