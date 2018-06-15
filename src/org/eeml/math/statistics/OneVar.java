@@ -5,16 +5,16 @@ import java.util.*;
 
 public class OneVar
 {
-	private ArrayList<Double> stats;
+	private ArrayList<? extends Number> stats;
 
-	private Double[] temp;
+	private Number[] temp;
 
 	public OneVar()
 	{
 		this(new ArrayList<>());
 	}
 
-	public OneVar(ArrayList<Double> stats)
+	public OneVar(ArrayList<? extends Number> stats)
 	{
 		this.stats = stats;
 		temp = stats.toArray(temp);
@@ -26,10 +26,10 @@ public class OneVar
 		return getSum() / getTotality();
 	}
 
-	public double getSumSquared()
+	public Number getSumSquared()
 	{
 		double sumSquared = 0;
-		for (double a : stats)
+		for (stats.getClass() a : stats)
 			sumSquared += a;
 		return sumSquared;
 	}
@@ -61,25 +61,25 @@ public class OneVar
 		return stats.size();
 	}
 
-	public double getMin()
+	public E getMin()
 	{
 		return temp[0];
 	}
 
-	public double getMax()
+	public E getMax()
 	{
 		return temp[temp.length - 1];
 	}
 
-	public double getMode()
+	public E getMode()
 	{
-		HashSet<Double> uniqueData = new HashSet<>(stats);
-		HashMap<Integer, Double> map = new HashMap<>();
+		HashSet<E> uniqueData = new HashSet<>(stats);
+		HashMap<Integer, E> map = new HashMap<>();
 		int[] count = new int[uniqueData.size()];
 		int j = 0;
-		for (Double d : uniqueData)
+		for (E d : uniqueData)
 		{
-			for (Double double2 : stats)
+			for (E double2 : stats)
 				if (d.equals(double2))
 					count[j]++;
 			map.put(count[j], d);
@@ -91,7 +91,7 @@ public class OneVar
 		return map.get(k);
 	}
 
-	public double getMedian()
+	public E getMedian()
 	{
 		int len = temp.length;
 		if ((len & 1) == 0)

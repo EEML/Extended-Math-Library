@@ -6,6 +6,7 @@ public class OneVarTest
 {
 	OneVar oneVar0 = new OneVar();
 	OneVar oneVar1 = new OneVar();
+	OneVar oneVar2 = new OneVar();
 
 	@Test
 	public void testGetMean()
