@@ -3,6 +3,17 @@ package org.eeml.math.statistics;
 import java.text.MessageFormat;
 import java.util.*;
 
+/**
+ * This class mainly implements the statistics method: one variable statistics for double type. To
+ * calculate the mean, the mode, or the median of a list of data, statistician may use this class,
+ * especially when this group of data is like height in meter(whose data should and must use double
+ * type).
+ * Maintained by <a href="https://github.com/EEML">EEML</a>. see more on <code>eeml.github.io</code>
+ *
+ * @author EULIR
+ * @see org.eeml.math;
+ * @since v1.0.0
+ */
 public class OneVarDouble
 {
 	private ArrayList<Double> stats;
