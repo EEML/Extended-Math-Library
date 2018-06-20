@@ -28,10 +28,12 @@ public class OneVarDoubleTest
 		oneVarDouble = new OneVarDouble(list);
 	}
 
+
+
 	@Test
 	public void testGetMean()
 	{
 		init();
-		assertEquals(0, oneVarDouble.getMean(), 0.001);
+		assertEquals(1, oneVarDouble.getMean(), 0.001);
 	}
 }
