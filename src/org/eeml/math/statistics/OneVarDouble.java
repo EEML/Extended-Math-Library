@@ -28,7 +28,7 @@ public class OneVarDouble
 	public OneVarDouble(ArrayList<Double> stats)
 	{
 		this.stats = stats;
-		temp = stats.toArray(temp);
+		temp = stats.toArray(new Double[0]);
 		Arrays.sort(temp);
 	}
 
@@ -47,7 +47,11 @@ public class OneVarDouble
 
 	public double getSampleStandardDeviation()
 	{
-		return getStandardDeviation() * getTotality() / (getTotality() - 1);
+		double mean = getMean();
+		double sd = 0;
+		for (double a : stats)
+			sd += (a - mean) * (a - mean);
+		return Math.sqrt(sd / (getTotality() - 1));
 	}
 
 	public double getStandardDeviation()
@@ -56,7 +60,7 @@ public class OneVarDouble
 		double sd = 0;
 		for (double a : stats)
 			sd += (a - mean) * (a - mean);
-		return sd / getTotality();
+		return Math.sqrt(sd / getTotality());
 	}
 
 	public double getSum()
