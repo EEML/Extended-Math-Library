@@ -47,7 +47,11 @@ class OneVarInteger
 
 	public double getSampleStandardDeviation()
 	{
-		return getStandardDeviation() * getTotality() / (getTotality() - 1);
+		double mean = getMean();
+		double sd = 0;
+		for (double a : stats)
+			sd += (a - mean) * (a - mean);
+		return Math.sqrt(sd / getTotality() - 1);
 	}
 
 	public double getStandardDeviation()
@@ -56,7 +60,7 @@ class OneVarInteger
 		double sd = 0;
 		for (double a : stats)
 			sd += (a - mean) * (a - mean);
-		return sd / getTotality();
+		return Math.sqrt(sd / getTotality());
 	}
 
 	public int getSum()
