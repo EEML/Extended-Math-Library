@@ -95,6 +95,7 @@ public class OneVarDoubleTest
 	public void testGetMedian()
 	{
 		init();
+		//System.out.println(Arrays.toString(oneVarDouble.temp));
 		assertEquals(3.6, oneVarDouble.getMedian(), 0.001);
 	}
 }

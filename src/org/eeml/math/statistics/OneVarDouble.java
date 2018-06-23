@@ -18,7 +18,7 @@ public class OneVarDouble
 {
 	private ArrayList<Double> stats;
 
-	private Double[] temp;
+	public Double[] temp;
 
 	public OneVarDouble()
 	{
@@ -110,7 +110,7 @@ public class OneVarDouble
 	{
 		int len = temp.length;
 		if ((len & 1) == 0)
-			return (temp[len >> 2] + temp[len >> 2 + 1]) / 2;
+			return (temp[len / 2] + temp[len /2 + 1]) / 2.0;
 		return temp[len >> 2];
 	}
 
