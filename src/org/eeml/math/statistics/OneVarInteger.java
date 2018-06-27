@@ -106,30 +106,23 @@ class OneVarInteger
 		return map.get(k);
 	}
 
-	public int getMedian()
+	public double getMedian()
 	{
-		int len = temp.length;
-		if ((len & 1) == 0)
-			return (temp[len >> 2] + temp[len >> 2 + 1]) / 2;
-		return temp[len >> 2];
+		return median(temp);
 	}
 
-	public int getQ1()
+	public double getQ1()
 	{
-		Integer[] arr = Arrays.copyOfRange(temp, 0, temp.length / 2);
-		int len = arr.length;
-		if ((len & 1) == 0)
-			return (arr[len >> 2] + arr[len >> 2 + 1]) / 2;
-		return arr[len >> 2];
+		Integer[] arr = new Integer[temp.length / 2];
+		System.arraycopy(temp, 0, arr, 0, temp.length / 2);
+		return median(arr);
 	}
 
-	public int getQ3()
+	public double getQ3()
 	{
-		Integer[] arr = (temp.length & 1) == 0 ? Arrays.copyOfRange(temp, temp.length / 2, temp.length) : Arrays.copyOfRange(temp, temp.length / 2 + 1, temp.length);
-		int len = arr.length;
-		if ((len & 1) == 0)
-			return (arr[len >> 2] + arr[len >> 2 + 1]) / 2;
-		return arr[len >> 2];
+		Integer[] arr = new Integer[temp.length / 2];
+		System.arraycopy(temp, temp.length / 2 ,arr, 0, temp.length / 2);
+		return median(arr);
 	}
 
 	@Override
@@ -165,5 +158,13 @@ class OneVarInteger
 	public int hashCode()
 	{
 		return Objects.hashCode(temp);
+	}
+
+	private static double median(Integer[] arr)
+	{
+		int len = arr.length;
+		if ((len & 1) == 0)
+			return (arr[len / 2] + arr[len / 2 - 1]) / 2.0;
+		return arr[len >> 2];
 	}
 }

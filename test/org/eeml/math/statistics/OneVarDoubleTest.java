@@ -88,14 +88,13 @@ public class OneVarDoubleTest
 	public void testGetQ3()
 	{
 		init();
-		assertEquals(7.27, oneVarDouble.getQ3(), 0.001);
+		assertEquals(7.25, oneVarDouble.getQ3(), 0.001);
 	}
 
 	@Test
 	public void testGetMedian()
 	{
 		init();
-		//System.out.println(Arrays.toString(oneVarDouble.temp));
 		assertEquals(3.6, oneVarDouble.getMedian(), 0.001);
 	}
 }
