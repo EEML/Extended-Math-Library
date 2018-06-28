@@ -78,6 +78,13 @@ public class OneVarDoubleTest
 	}
 
 	@Test
+	public void testGetMax()
+	{
+		init();
+		assertEquals(9, oneVarDouble.getMax(), 0.001);
+	}
+
+	@Test
 	public void testGetQ1()
 	{
 		init();
@@ -96,5 +103,30 @@ public class OneVarDoubleTest
 	{
 		init();
 		assertEquals(3.6, oneVarDouble.getMedian(), 0.001);
+	}
+
+	@Test
+	public void testGetMode()
+	{
+		init();
+		assertEquals(1, oneVarDouble.getMode(), 0.001);
+	}
+
+	@Test
+	public void testToString()
+	{
+		init();
+		assertEquals("mean=4.35\n" +
+				"sum=52.2\n" +
+				"sum^2=320.62\n" +
+				"sample SD=2.916\n" +
+				"SD=2.792\n" +
+				"n=12\n" +
+				"min=1\n" +
+				"max=9\n" +
+				"mode=1\n" +
+				"median=3.6\n" +
+				"Q1=2\n" +
+				"Q3=7.25\n", oneVarDouble.toString());
 	}
 }
