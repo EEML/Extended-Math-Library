@@ -129,4 +129,11 @@ public class OneVarDoubleTest
 				"Q1=2\n" +
 				"Q3=7.25\n", oneVarDouble.toString());
 	}
+
+	@Test
+	public void testEquals()
+	{
+		init();
+
+	}
 }
