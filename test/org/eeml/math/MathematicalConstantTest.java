@@ -13,11 +13,9 @@ import static org.junit.Assert.assertEquals;
  * @coverage 100%
  * @see org.eeml.math
  */
-public class MathematicalConstantTest
-{
+public class MathematicalConstantTest {
 	@Test
-	public void testConstant()
-	{
+	public void testConstant() {
 		assertEquals(0, MathematicalConstant.ZERO);
 		assertEquals(1, MathematicalConstant.UNITY);
 		assertEquals(3.141592653589793, MathematicalConstant.PI, 0.0001);

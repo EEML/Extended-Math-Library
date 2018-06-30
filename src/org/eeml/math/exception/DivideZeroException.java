@@ -13,22 +13,18 @@ import org.jetbrains.annotations.NotNull;
  * @since v1.0.0
  */
 @SuppressWarnings("WeakerAccess")
-public class DivideZeroException extends ArithmeticException
-{
-	public DivideZeroException(@NotNull @Nls String message)
-	{
+public class DivideZeroException extends ArithmeticException {
+	public DivideZeroException(@NotNull @Nls String message) {
 		super(message);
 	}
 
-	public DivideZeroException()
-	{
+	public DivideZeroException() {
 		this("A number cannot divide zero");
 	}
 
 	@NotNull
 	@Contract("_ -> !null")
-	public static DivideZeroException fromNumber(int num)
-	{
+	public static DivideZeroException fromNumber(int num) {
 		return new DivideZeroException(num + " cannot divide zero!");
 	}
 }

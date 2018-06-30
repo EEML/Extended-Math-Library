@@ -5,11 +5,9 @@ import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 
-public class HighestCoefficientBeZeroExceptionTest
-{
+public class HighestCoefficientBeZeroExceptionTest {
 	@Test
-	public void testThrow()
-	{
+	public void testThrow() {
 		assertThrows(HighestCoefficientBeZeroException.class, () ->
 		{
 			throw new HighestCoefficientBeZeroException();

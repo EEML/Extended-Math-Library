@@ -15,8 +15,7 @@ import java.util.Objects;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class LinearEquationTwo
-{
+public class LinearEquationTwo {
 	/**
 	 * form the linear equation with two unknown in the following way:
 	 * a1 * x + b1 * y = c1
@@ -35,8 +34,7 @@ public class LinearEquationTwo
 	/**
 	 * default constructor
 	 */
-	public LinearEquationTwo()
-	{
+	public LinearEquationTwo() {
 		a1 = a2 = b1 = b2 = c1 = c2 = x = y = 0;
 	}
 
@@ -53,8 +51,7 @@ public class LinearEquationTwo
 	 *                                           situation that they have some coefficient
 	 *                                           before the parameters).
 	 */
-	public LinearEquationTwo(double a1, double b1, double c1, double a2, double b2, double c2)
-	{
+	public LinearEquationTwo(double a1, double b1, double c1, double a2, double b2, double c2) {
 		if (a1 == 0 || a2 == 0 || b1 == 0 || b2 == 0)
 			throw new HighestCoefficientBeZeroException("Neither a nor b can be zero");
 		if (a1 * b2 == a2 * b1)
@@ -74,8 +71,7 @@ public class LinearEquationTwo
 	 *
 	 * @return solution x
 	 */
-	public double getXSolution()
-	{
+	public double getXSolution() {
 		return x;
 	}
 
@@ -84,8 +80,7 @@ public class LinearEquationTwo
 	 *
 	 * @return solution y
 	 */
-	public double getYSolution()
-	{
+	public double getYSolution() {
 		return y;
 	}
 
@@ -96,8 +91,7 @@ public class LinearEquationTwo
 	 * a1 * x + b1 * y = c1
 	 * a2 * x + b2 * y = c2
 	 */
-	public String toString()
-	{
+	public String toString() {
 		return MessageFormat.format((this.a1 == 1 ? "" : this.a1 == -1 ? "-" : "{0}") + "x" + (this.b1 > 0 ? "+" : "") + (this.b1 == 1 ? "" : this.b1 == -1 ? "-" : "{1}") + "y={2}", this.a1, this.b1, this.c1)
 				+ "\n"
 				+ MessageFormat.format((this.a2 == 1 ? "" : this.a2 == -1 ? "-" : "{0}") + "x" + (this.b2 > 0 ? "+" : "") + (this.b2 == 1 ? "" : this.b2 == -1 ? "-" : "{0}") + "y={2}", this.a2, this.b2, this.c2)
@@ -112,8 +106,7 @@ public class LinearEquationTwo
 	 * @return true if two linear equations are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof LinearEquationTwo))
@@ -133,8 +126,7 @@ public class LinearEquationTwo
 	 * @return hashCode of the linear equation.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(a1, b1, c1, a2, b2, c2, x, y);
 	}
 }

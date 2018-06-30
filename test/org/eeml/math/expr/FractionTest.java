@@ -16,24 +16,21 @@ import static org.junit.Assert.*;
  * @see org.eeml.math
  */
 
-public class FractionTest
-{
+public class FractionTest {
 	private Fraction a = new Fraction(1, 2);
 	private Fraction b = new Fraction(-4, 2);
 	private Fraction c = new Fraction(-6, -99);
 	private Fraction d = new Fraction(3, -2);
 
 	@Test
-	public void testException()
-	{
+	public void testException() {
 		assertThrows(DivideZeroException.class, () -> new Fraction(1, 0));
 		assertThrows(DivideZeroException.class, () -> new Fraction(1, 0, true));
 		assertThrows(IllegalArgumentException.class, () -> new Fraction(-1, -1, true));
 	}
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		assertEquals("1/2", a.toString());
 		assertEquals("-2", b.toString());
 		assertEquals("2/33", c.toString());
@@ -41,8 +38,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testAdd()
-	{
+	public void testAdd() {
 		assertEquals("-3/2", a.add(b).toString());
 		assertEquals("37/66", a.add(c).toString());
 		assertEquals("-1", a.add(d).toString());
@@ -52,8 +48,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testSubtract()
-	{
+	public void testSubtract() {
 		assertEquals("5/2", a.subtract(b).toString());
 		assertEquals("29/66", a.subtract(c).toString());
 		assertEquals("2", a.subtract(d).toString());
@@ -63,8 +58,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testMultiply()
-	{
+	public void testMultiply() {
 		assertEquals("-1", a.multiply(b).toString());
 		assertEquals("1/33", a.multiply(c).toString());
 		assertEquals("-3/4", a.multiply(d).toString());
@@ -74,8 +68,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testDivide()
-	{
+	public void testDivide() {
 		assertEquals("-1/4", a.divide(b).toString());
 		assertEquals("33/4", a.divide(c).toString());
 		assertEquals("-1/3", a.divide(d).toString());
@@ -85,8 +78,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testSetSign()
-	{
+	public void testSetSign() {
 		a.setSign(false);
 		assertEquals("-1/2", a.toString());
 		a.setSign(true);
@@ -94,8 +86,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testOppositeNumber()
-	{
+	public void testOppositeNumber() {
 		assertEquals("-1/2", a.oppositeNumber().toString());
 		assertEquals("2", b.oppositeNumber().toString());
 		assertEquals("-2/33", c.oppositeNumber().toString());
@@ -103,8 +94,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testOpposite()
-	{
+	public void testOpposite() {
 		a.opposite();
 		assertEquals("-1/2", a.toString());
 		a.opposite();
@@ -112,8 +102,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testGetSign()
-	{
+	public void testGetSign() {
 		assertEquals("+", a.getSign());
 		assertEquals("-", b.getSign());
 		assertEquals("+", c.getSign());
@@ -121,8 +110,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testGetNumerator()
-	{
+	public void testGetNumerator() {
 		assertEquals(1, a.getNumerator());
 		assertEquals(2, b.getNumerator());
 		assertEquals(2, c.getNumerator());
@@ -130,8 +118,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testGetDenominator()
-	{
+	public void testGetDenominator() {
 		assertEquals(2, a.getDenominator());
 		assertEquals(1, b.getDenominator());
 		assertEquals(33, c.getDenominator());
@@ -139,8 +126,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testGetValue()
-	{
+	public void testGetValue() {
 		assertEquals(0.5, a.getValue(), 0.01);
 		assertEquals(-2.0, b.getValue(), 0.01);
 		assertEquals(0.0606, c.getValue(), 0.01);
@@ -148,8 +134,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testCompareTo()
-	{
+	public void testCompareTo() {
 		assertTrue(a.compareTo(b) > 0);
 		assertTrue(a.compareTo(c) > 0);
 		assertTrue(a.compareTo(d) > 0);
@@ -164,8 +149,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testEquals()
-	{
+	public void testEquals() {
 		Fraction test1 = new Fraction(1, 3);
 		Fraction test2 = test1;
 		assertTrue(test1.equals(test2));
@@ -179,8 +163,7 @@ public class FractionTest
 	}
 
 	@Test
-	public void testHashCode()
-	{
+	public void testHashCode() {
 		Fraction test1 = new Fraction(1, 3);
 		Fraction test3 = new Fraction(2, 6);
 		Fraction test4 = new Fraction(-1, 2);

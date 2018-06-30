@@ -15,13 +15,11 @@ import java.util.Objects;
  * @since v1.0.0
  */
 
-public class ComplexNumber
-{
+public class ComplexNumber {
 	private double real;
 	private double imaginary;
 
-	public ComplexNumber(double real, double imaginary)
-	{
+	public ComplexNumber(double real, double imaginary) {
 		this.real = real;
 		this.imaginary = imaginary;
 	}
@@ -30,8 +28,7 @@ public class ComplexNumber
 	 * @param a the addend complex number.
 	 * @return a new complex number which stands for the sum of two complex numbers.
 	 */
-	public ComplexNumber add(ComplexNumber a)
-	{
+	public ComplexNumber add(ComplexNumber a) {
 		return new ComplexNumber(this.real + a.real, this.imaginary + a.imaginary);
 	}
 
@@ -39,8 +36,7 @@ public class ComplexNumber
 	 * @param a the addend integer number.
 	 * @return a new complex number which stands for the sum of two numbers.
 	 */
-	public ComplexNumber add(int a)
-	{
+	public ComplexNumber add(int a) {
 		return new ComplexNumber(this.real + a, this.imaginary);
 	}
 
@@ -48,8 +44,7 @@ public class ComplexNumber
 	 * @param a the addend real number.
 	 * @return a new complex number which stands for the sum of two numbers.
 	 */
-	public ComplexNumber add(double a)
-	{
+	public ComplexNumber add(double a) {
 		return new ComplexNumber(this.real + a, this.imaginary);
 	}
 
@@ -57,8 +52,7 @@ public class ComplexNumber
 	 * @param a the minuend complex number.
 	 * @return a new complex number which stands for the difference between two complex numbers.
 	 */
-	public ComplexNumber subtract(ComplexNumber a)
-	{
+	public ComplexNumber subtract(ComplexNumber a) {
 		return new ComplexNumber(this.real - a.real, this.imaginary - a.imaginary);
 	}
 
@@ -66,8 +60,7 @@ public class ComplexNumber
 	 * @param a the minuend real number.
 	 * @return a new complex number which stands for the difference between two numbers.
 	 */
-	public ComplexNumber subtract(double a)
-	{
+	public ComplexNumber subtract(double a) {
 		return new ComplexNumber(this.real - a, this.imaginary);
 	}
 
@@ -75,8 +68,7 @@ public class ComplexNumber
 	 * @param a the multiplier complex number.
 	 * @return a new complex number which stands for the product of two complex numbers.
 	 */
-	public ComplexNumber multiply(ComplexNumber a)
-	{
+	public ComplexNumber multiply(ComplexNumber a) {
 		double real = this.real * a.real - this.imaginary * a.imaginary;
 		double imaginary = this.real * a.imaginary + this.imaginary * a.real;
 		return new ComplexNumber(real, imaginary);
@@ -86,8 +78,7 @@ public class ComplexNumber
 	 * @param a the multiplier real number.
 	 * @return a new complex number which stands for the product of two numbers.
 	 */
-	public ComplexNumber multiply(double a)
-	{
+	public ComplexNumber multiply(double a) {
 		return new ComplexNumber(this.real * a, this.imaginary * a);
 	}
 
@@ -96,8 +87,7 @@ public class ComplexNumber
 	 * @return a new complex number which stands for the quotient of two complex numbers.
 	 * @throws DivideZeroException when a complex number is dividing zero.
 	 */
-	public ComplexNumber divide(ComplexNumber a)
-	{
+	public ComplexNumber divide(ComplexNumber a) {
 		if (a.equals(new ComplexNumber(0, 0)))
 			throw new DivideZeroException("Complex number cannot divide zero.");
 		double real = (this.real * a.real + this.imaginary * a.imaginary) / (a.real * a.real + a.imaginary * a.imaginary);
@@ -110,8 +100,7 @@ public class ComplexNumber
 	 * @return a new complex number which stands for the quotient of two numbers.
 	 * @throws DivideZeroException when a complex number is dividing zero.
 	 */
-	public ComplexNumber divide(double a)
-	{
+	public ComplexNumber divide(double a) {
 		if (a == 0)
 			throw new DivideZeroException("Complex number cannot divide zero.");
 		return new ComplexNumber(this.real / a, this.imaginary / a);
@@ -123,8 +112,7 @@ public class ComplexNumber
 	 *
 	 * @return true if the complex number is transferable, false otherwise.
 	 */
-	public boolean transferable()
-	{
+	public boolean transferable() {
 		return imaginary == 0;
 	}
 
@@ -137,8 +125,7 @@ public class ComplexNumber
 	 * @return double value of real part of this complex number.
 	 * @throws IllegalStateException when this complex number has imaginary part.
 	 */
-	public double toDouble()
-	{
+	public double toDouble() {
 		if (transferable())
 			return real;
 		throw new IllegalArgumentException("This complex number is not transferable.");
@@ -151,8 +138,7 @@ public class ComplexNumber
 	 * real + imaginary + "i"
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (this.real == 0 && this.imaginary == 0)
 			return "0";
 		if (this.real == 0)
@@ -169,8 +155,7 @@ public class ComplexNumber
 	 * @return true if two complex numbers are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof ComplexNumber))
@@ -186,8 +171,7 @@ public class ComplexNumber
 	 * @return hashCode of the complex number.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(real, imaginary);
 	}
 }

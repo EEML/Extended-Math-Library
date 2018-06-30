@@ -15,53 +15,44 @@ import java.util.Objects;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class Root implements Comparable
-{
+public class Root implements Comparable {
 	private int coefficient;
 	private int base;
 
-	public Root(int base)
-	{
+	public Root(int base) {
 		if (base < 0)
 			throw new ArithmeticException("Base of a square root cannot be negative");
-		if (MathLibrary.isSquare(base))
-		{
+		if (MathLibrary.isSquare(base)) {
 			this.coefficient = (int) Math.sqrt(base);
 			this.base = 1;
 			return;
 		}
 		this.coefficient = 1;
 		for (int i = (int) Math.sqrt(base); i >= 2; i--)
-			if (base % i == 0 && base % (i * i) == 0)
-			{
+			if (base % i == 0 && base % (i * i) == 0) {
 				this.coefficient *= i;
 				base /= i * i;
 			}
 		this.base = base;
 	}
 
-	public int getCoefficient()
-	{
+	public int getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(int coefficient)
-	{
+	public void setCoefficient(int coefficient) {
 		this.coefficient = coefficient;
 	}
 
-	public int getBase()
-	{
+	public int getBase() {
 		return base;
 	}
 
-	public Root multiply(Root a)
-	{
+	public Root multiply(Root a) {
 		return new Root(this.coefficient * this.coefficient * this.base * a.coefficient * a.coefficient * a.base);
 	}
 
-	public double getValue()
-	{
+	public double getValue() {
 		return this.coefficient * Math.sqrt(base);
 	}
 
@@ -72,8 +63,7 @@ public class Root implements Comparable
 	 * "coefficient" + "√" + "base"
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (this.base == 1)
 			return String.valueOf(this.coefficient);
 		else if (this.coefficient == 1)
@@ -91,8 +81,7 @@ public class Root implements Comparable
 	 * @throws IllegalArgumentException when {@code o is not a root}
 	 */
 	@Override
-	public int compareTo(@NotNull Object o)
-	{
+	public int compareTo(@NotNull Object o) {
 		if (!(o instanceof Root))
 			throw new IllegalArgumentException();
 		if (o.equals(this))
@@ -107,8 +96,7 @@ public class Root implements Comparable
 	 * @return true if two roots are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof Root))
@@ -123,8 +111,7 @@ public class Root implements Comparable
 	 * @return hashCode of the root.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(coefficient, base);
 	}
 

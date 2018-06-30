@@ -15,8 +15,7 @@ import java.util.Objects;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class QuadraticEquation
-{
+public class QuadraticEquation {
 	private int a;
 	private int b;
 	private int c;
@@ -35,24 +34,20 @@ public class QuadraticEquation
 	 * @param c constant coefficient
 	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 */
-	public QuadraticEquation(int a, int b, int c)
-	{
+	public QuadraticEquation(int a, int b, int c) {
 		if (a == 0)
 			throw new HighestCoefficientBeZeroException(QuadraticEquation.class);
 		this.a = a;
 		this.b = b;
 		this.c = c;
 		this.delta = b * b - 4 * a * c;
-		if (delta == 0)
-		{
+		if (delta == 0) {
 			x1 = new ComplexNumber(-b / (double) (2 * a), 0);
 			x2 = x1;
-		} else if (delta > 0)
-		{
+		} else if (delta > 0) {
 			x1 = new ComplexNumber((-b + Math.sqrt(delta)) / (2 * a), 0);
 			x2 = new ComplexNumber((-b - Math.sqrt(delta)) / (2 * a), 0);
-		} else
-		{
+		} else {
 			x1 = new ComplexNumber(-b / (double) (2 * a), Math.sqrt(-delta) / (2 * a));
 			x2 = new ComplexNumber(-b / (double) (2 * a), -Math.sqrt(-delta) / (2 * a));
 		}
@@ -63,8 +58,7 @@ public class QuadraticEquation
 	 *
 	 * @return solution x1
 	 */
-	public ComplexNumber getFirstSolution()
-	{
+	public ComplexNumber getFirstSolution() {
 		return x1;
 	}
 
@@ -73,8 +67,7 @@ public class QuadraticEquation
 	 *
 	 * @return solution x2
 	 */
-	public ComplexNumber getSecondSolution()
-	{
+	public ComplexNumber getSecondSolution() {
 		return x2;
 	}
 
@@ -83,8 +76,7 @@ public class QuadraticEquation
 	 *
 	 * @return delta
 	 */
-	public int getDelta()
-	{
+	public int getDelta() {
 		return delta;
 	}
 
@@ -99,8 +91,7 @@ public class QuadraticEquation
 	 * ax^2+bx+c=0
 	 * x1=x2=
 	 */
-	public String toString()
-	{
+	public String toString() {
 		String a = MessageFormat.format("{0}", this.a);
 		String b = MessageFormat.format("{0}", this.b);
 		String c = MessageFormat.format("{0}", this.c);
@@ -125,8 +116,7 @@ public class QuadraticEquation
 	 * @return true if two quadratic equations are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof QuadraticEquation))
@@ -143,8 +133,7 @@ public class QuadraticEquation
 	 * @return hashCode of the quadratic equation.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(a, b, c);
 	}
 }

@@ -14,39 +14,33 @@ import java.util.*;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class OneVarDouble
-{
+public class OneVarDouble {
 	private ArrayList<Double> stats;
 
 	public Double[] temp;
 
-	public OneVarDouble()
-	{
+	public OneVarDouble() {
 		this(new ArrayList<>());
 	}
 
-	public OneVarDouble(ArrayList<Double> stats)
-	{
+	public OneVarDouble(ArrayList<Double> stats) {
 		this.stats = stats;
 		temp = stats.toArray(new Double[0]);
 		Arrays.sort(temp);
 	}
 
-	public double getMean()
-	{
+	public double getMean() {
 		return getSum() / getTotality();
 	}
 
-	public double getSumSquared()
-	{
+	public double getSumSquared() {
 		double sumSquared = 0;
 		for (double a : stats)
 			sumSquared += a * a;
 		return sumSquared;
 	}
 
-	public double getSampleStandardDeviation()
-	{
+	public double getSampleStandardDeviation() {
 		double mean = getMean();
 		double sd = 0;
 		for (double a : stats)
@@ -54,8 +48,7 @@ public class OneVarDouble
 		return Math.sqrt(sd / (getTotality() - 1));
 	}
 
-	public double getStandardDeviation()
-	{
+	public double getStandardDeviation() {
 		double mean = getMean();
 		double sd = 0;
 		for (double a : stats)
@@ -63,37 +56,31 @@ public class OneVarDouble
 		return Math.sqrt(sd / getTotality());
 	}
 
-	public double getSum()
-	{
+	public double getSum() {
 		double sum = 0;
 		for (double a : stats)
 			sum += a;
 		return sum;
 	}
 
-	public int getTotality()
-	{
+	public int getTotality() {
 		return stats.size();
 	}
 
-	public double getMin()
-	{
+	public double getMin() {
 		return temp[0];
 	}
 
-	public double getMax()
-	{
+	public double getMax() {
 		return temp[temp.length - 1];
 	}
 
-	public double getMode()
-	{
+	public double getMode() {
 		HashSet<Double> uniqueData = new HashSet<>(stats);
 		HashMap<Integer, Double> map = new HashMap<>();
 		int[] count = new int[uniqueData.size()];
 		int j = 0;
-		for (Double d : uniqueData)
-		{
+		for (Double d : uniqueData) {
 			for (Double double2 : stats)
 				if (d.equals(double2))
 					count[j]++;
@@ -106,28 +93,24 @@ public class OneVarDouble
 		return map.get(k);
 	}
 
-	public double getMedian()
-	{
+	public double getMedian() {
 		return median(temp);
 	}
 
-	public double getQ1()
-	{
+	public double getQ1() {
 		Double[] arr = new Double[temp.length / 2];
 		System.arraycopy(temp, 0, arr, 0, temp.length / 2);
 		return median(arr);
 	}
 
-	public double getQ3()
-	{
+	public double getQ3() {
 		Double[] arr = new Double[temp.length / 2];
-		System.arraycopy(temp, temp.length / 2 ,arr, 0, temp.length / 2);
+		System.arraycopy(temp, temp.length / 2, arr, 0, temp.length / 2);
 		return median(arr);
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return MessageFormat.format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}",
 				MessageFormat.format("mean={0}\n", getMean()),
 				MessageFormat.format("sum={0}\n", getSum()),
@@ -144,8 +127,7 @@ public class OneVarDouble
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof OneVarDouble))
@@ -155,13 +137,11 @@ public class OneVarDouble
 	}
 
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hashCode(temp);
 	}
 
-	private static double median(Double[] arr)
-	{
+	private static double median(Double[] arr) {
 		int len = arr.length;
 		if ((len & 1) == 0)
 			return (arr[len / 2] + arr[len / 2 - 1]) / 2.0;

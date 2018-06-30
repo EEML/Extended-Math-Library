@@ -5,11 +5,9 @@ import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 
-public class NotSolvableExceptionTest
-{
+public class NotSolvableExceptionTest {
 	@Test
-	public void testThrow()
-	{
+	public void testThrow() {
 		assertThrows(NotSolvableException.class, () ->
 		{
 			throw new NotSolvableException();

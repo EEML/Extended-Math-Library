@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class OneVarDoubleTest
-{
+public class OneVarDoubleTest {
 	OneVarDouble oneVarDouble = new OneVarDouble();
 
-	private void init()
-	{
+	private void init() {
 		ArrayList<Double> list = new ArrayList<>();
 		list.add(3.2D);
 		list.add(4D);
@@ -29,92 +27,79 @@ public class OneVarDoubleTest
 	}
 
 	@Test
-	public void testGetMean()
-	{
+	public void testGetMean() {
 		init();
 		assertEquals(4.35, oneVarDouble.getMean(), 0.001);
 	}
 
 	@Test
-	public void testGetSum()
-	{
+	public void testGetSum() {
 		init();
 		assertEquals(52.2, oneVarDouble.getSum(), 0.001);
 	}
 
 	@Test
-	public void testGetSumSquared()
-	{
+	public void testGetSumSquared() {
 		init();
 		assertEquals(320.62, oneVarDouble.getSumSquared(), 0.001);
 	}
 
 	@Test
-	public void testGetSampleStandardDeviation()
-	{
+	public void testGetSampleStandardDeviation() {
 		init();
 		assertEquals(2.9162, oneVarDouble.getSampleStandardDeviation(), 0.001);
 	}
 
 	@Test
-	public void testGetStandardDeviation()
-	{
+	public void testGetStandardDeviation() {
 		init();
 		assertEquals(2.7921, oneVarDouble.getStandardDeviation(), 0.001);
 	}
 
 	@Test
-	public void testGetTotality()
-	{
+	public void testGetTotality() {
 		init();
 		assertEquals(12, oneVarDouble.getTotality());
 	}
 
 	@Test
-	public void testGetMin()
-	{
+	public void testGetMin() {
 		init();
 		assertEquals(1, oneVarDouble.getMin(), 0.001);
 	}
 
 	@Test
-	public void testGetMax()
-	{
+	public void testGetMax() {
 		init();
 		assertEquals(9, oneVarDouble.getMax(), 0.001);
 	}
 
 	@Test
-	public void testGetQ1()
-	{
+	public void testGetQ1() {
 		init();
 		assertEquals(2, oneVarDouble.getQ1(), 0.001);
 	}
 
 	@Test
-	public void testGetQ3()
-	{
+	public void testGetQ3() {
 		init();
 		assertEquals(7.25, oneVarDouble.getQ3(), 0.001);
 	}
 
 	@Test
-	public void testGetMedian()
-	{
+	public void testGetMedian() {
 		init();
 		assertEquals(3.6, oneVarDouble.getMedian(), 0.001);
 	}
 
 	@Test
-	public void testGetMode()
-	{
+	public void testGetMode() {
 		init();
 		assertEquals(1, oneVarDouble.getMode(), 0.001);
 	}
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		init();
 		assertEquals("mean=4.35\n" +
 				"sum=52.2\n" +
@@ -131,8 +116,7 @@ public class OneVarDoubleTest
 	}
 
 	@Test
-	public void testEquals()
-	{
+	public void testEquals() {
 		init();
 
 	}

@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class OneVarIntegerTest
-{
+public class OneVarIntegerTest {
 	OneVarInteger oneVarInteger = new OneVarInteger();
 
-	private void init()
-	{
+	private void init() {
 		ArrayList<Integer> list = new ArrayList<>();
 		list.add(3);
 		list.add(4);
@@ -29,8 +27,7 @@ public class OneVarIntegerTest
 	}
 
 	@Test
-	public void testGetMean()
-	{
+	public void testGetMean() {
 		init();
 		assertEquals(0, oneVarInteger.getMean(), 0.001);
 	}

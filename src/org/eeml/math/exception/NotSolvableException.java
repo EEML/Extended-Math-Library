@@ -11,20 +11,16 @@ import org.jetbrains.annotations.NotNull;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class NotSolvableException extends IllegalStateException
-{
-	public NotSolvableException(@NotNull @Nls String message)
-	{
+public class NotSolvableException extends IllegalStateException {
+	public NotSolvableException(@NotNull @Nls String message) {
 		super(message);
 	}
 
-	public NotSolvableException()
-	{
+	public NotSolvableException() {
 		this("There's no proper solution for the given equation");
 	}
 
-	public NotSolvableException(Class clazz)
-	{
+	public NotSolvableException(Class clazz) {
 		this("With the given data, there's no proper solution for " + clazz.getSimpleName());
 	}
 }

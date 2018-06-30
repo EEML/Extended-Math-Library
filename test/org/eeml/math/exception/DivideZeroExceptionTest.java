@@ -4,11 +4,9 @@ import org.junit.Test;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 
-public class DivideZeroExceptionTest
-{
+public class DivideZeroExceptionTest {
 	@Test
-	public void testThrow()
-	{
+	public void testThrow() {
 		assertThrows(DivideZeroException.class, () ->
 		{
 			throw new DivideZeroException();

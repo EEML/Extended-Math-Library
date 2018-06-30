@@ -15,8 +15,7 @@ import java.util.Objects;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class LinearEquationOne implements Comparable
-{
+public class LinearEquationOne implements Comparable {
 	private double a;
 	private double b;
 	private double c;
@@ -30,8 +29,7 @@ public class LinearEquationOne implements Comparable
 	 * @param b b
 	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 */
-	public LinearEquationOne(double a, double b)
-	{
+	public LinearEquationOne(double a, double b) {
 		if (a == 0)
 			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		this.a = a;
@@ -48,8 +46,7 @@ public class LinearEquationOne implements Comparable
 	 * @param b b
 	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 */
-	public LinearEquationOne(int a, int b)
-	{
+	public LinearEquationOne(int a, int b) {
 		if (a == 0)
 			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		this.a = (double) a;
@@ -68,8 +65,7 @@ public class LinearEquationOne implements Comparable
 	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 * @throws IllegalStateException             when {@code c} equals zero.
 	 */
-	public LinearEquationOne(double a, double b, double c)
-	{
+	public LinearEquationOne(double a, double b, double c) {
 		if (a == 0)
 			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		if (Math.abs(c) < 0.00001)
@@ -91,8 +87,7 @@ public class LinearEquationOne implements Comparable
 	 * @throws HighestCoefficientBeZeroException when {@code a} equals zero.
 	 * @throws IllegalStateException             when {@code c} equals zero.
 	 */
-	public LinearEquationOne(int a, int b, int c)
-	{
+	public LinearEquationOne(int a, int b, int c) {
 		if (a == 0)
 			throw new HighestCoefficientBeZeroException(LinearEquationOne.class);
 		if (Math.abs(c) < 0.00001)
@@ -109,8 +104,7 @@ public class LinearEquationOne implements Comparable
 	 *
 	 * @return solution x
 	 */
-	public double getSolution()
-	{
+	public double getSolution() {
 		return x;
 	}
 
@@ -121,8 +115,7 @@ public class LinearEquationOne implements Comparable
 	 * ax+b=c
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (this.a == 1)
 			if (this.b == 0)
 				return MessageFormat.format("x={0}\tx={1}", this.c, Math.abs(this.x) < 0.000001 ? 0 : this.x);
@@ -149,8 +142,7 @@ public class LinearEquationOne implements Comparable
 	 * @throws IllegalArgumentException when {@code o is not a linear equation}
 	 */
 	@Override
-	public int compareTo(@NotNull Object o)
-	{
+	public int compareTo(@NotNull Object o) {
 		if (!(o instanceof LinearEquationOne))
 			throw new IllegalArgumentException();
 		if (o.equals(this))
@@ -165,8 +157,7 @@ public class LinearEquationOne implements Comparable
 	 * @return true if two linear equations are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof LinearEquationOne))
@@ -182,8 +173,7 @@ public class LinearEquationOne implements Comparable
 	 * @return hashCode of the linear equation.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(a, b, c, x);
 	}
 }

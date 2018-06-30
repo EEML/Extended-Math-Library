@@ -6,8 +6,7 @@ import org.junit.Test;
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
 
-public class ComplexNumberTest
-{
+public class ComplexNumberTest {
 	private ComplexNumber complexNumber1 = new ComplexNumber(2.4, 9.5);
 	private ComplexNumber complexNumber2 = new ComplexNumber(5, -0.4);
 	private ComplexNumber complexNumber3 = new ComplexNumber(-4, 8.876);
@@ -20,8 +19,7 @@ public class ComplexNumberTest
 	private ComplexNumber complexNumber10 = new ComplexNumber(3, -1);
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		assertEquals("2.4+9.5i", complexNumber1.toString());
 		assertEquals("5-0.4i", complexNumber2.toString());
 		assertEquals("-4+8.876i", complexNumber3.toString());
@@ -35,8 +33,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testAdd()
-	{
+	public void testAdd() {
 		assertEquals("7.4+9.1i", complexNumber1.add(complexNumber2).toString());
 		assertEquals("-8+6.876i", complexNumber3.add(complexNumber4).toString());
 		assertEquals("0.99i", complexNumber5.add(complexNumber6).toString());
@@ -47,8 +44,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testSubtract()
-	{
+	public void testSubtract() {
 		assertEquals("3-i", complexNumber10.subtract(complexNumber9).toString());
 		assertEquals("324", complexNumber8.subtract(complexNumber7).toString());
 		assertEquals("-1.01i", complexNumber6.subtract(complexNumber5).toString());
@@ -59,8 +55,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testMultiply()
-	{
+	public void testMultiply() {
 		assertEquals("16.7+26.1i", complexNumber1.multiply(complexNumber10).toString());
 		assertEquals("0", complexNumber2.multiply(complexNumber9).toString());
 		assertEquals("-4+8.876i", complexNumber3.multiply(complexNumber8).toString());
@@ -71,8 +66,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testDivide()
-	{
+	public void testDivide() {
 		assertEquals("0.788-0.626i", complexNumber1.divide(complexNumber3).toString());
 		assertEquals("-0.96+0.58i", complexNumber2.divide(complexNumber4).toString());
 		assertEquals("-887.6-400i", complexNumber3.divide(complexNumber6).toString());
@@ -83,8 +77,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testTransferable()
-	{
+	public void testTransferable() {
 		assertFalse(complexNumber1.transferable());
 		assertFalse(complexNumber2.transferable());
 		assertFalse(complexNumber3.transferable());
@@ -98,8 +91,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testToDouble()
-	{
+	public void testToDouble() {
 		if (complexNumber7.transferable())
 			assertEquals(-323, complexNumber7.toDouble(), 0.001);
 		if (complexNumber8.transferable())
@@ -109,8 +101,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testEquals()
-	{
+	public void testEquals() {
 		assertFalse(complexNumber1.equals(complexNumber2));
 		assertFalse(complexNumber3.equals(new Object()));
 		assertFalse(complexNumber4.equals(complexNumber5));
@@ -122,8 +113,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testThrows()
-	{
+	public void testThrows() {
 		assertThrows(DivideZeroException.class, () -> complexNumber1.divide(complexNumber9));
 		assertThrows(DivideZeroException.class, () -> complexNumber2.divide(0));
 		assertThrows(IllegalArgumentException.class, () -> complexNumber1.toDouble());
@@ -131,8 +121,7 @@ public class ComplexNumberTest
 	}
 
 	@Test
-	public void testHashcode()
-	{
+	public void testHashcode() {
 		assertNotEquals(complexNumber1.hashCode(), complexNumber2.hashCode());
 		assertNotEquals(complexNumber3.hashCode(), complexNumber4.hashCode());
 		assertNotEquals(complexNumber5.hashCode(), complexNumber6.hashCode());

@@ -9,8 +9,7 @@ package org.eeml.math;
  * @see org.eeml.math
  * @since v1.0.0
  */
-public class MathLibrary
-{
+public class MathLibrary {
 	/**
 	 * Return greatest common divisor of the argument
 	 *
@@ -18,8 +17,7 @@ public class MathLibrary
 	 * @param b second parameter
 	 * @return greatest common divisor of the argument
 	 */
-	public static int gcd(int a, int b)
-	{
+	public static int gcd(int a, int b) {
 		return b == 0 ? a : gcd(b, a % b);
 	}
 
@@ -30,8 +28,7 @@ public class MathLibrary
 	 * @param a given number
 	 * @return true or false
 	 */
-	public static boolean isSquare(int a)
-	{
+	public static boolean isSquare(int a) {
 		int b = (int) Math.sqrt(a);
 		return b * b == a;
 	}
@@ -43,8 +40,7 @@ public class MathLibrary
 	 * @param a given number
 	 * @return true or false
 	 */
-	public static boolean isSquare(long a)
-	{
+	public static boolean isSquare(long a) {
 		long b = (long) Math.sqrt(a);
 		return b * b == a;
 	}

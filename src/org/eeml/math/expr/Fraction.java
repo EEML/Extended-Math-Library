@@ -17,8 +17,7 @@ import java.util.Objects;
  * @since v1.0.0
  */
 
-public class Fraction implements Comparable
-{
+public class Fraction implements Comparable {
 	private boolean sign;
 	private int numerator;
 	private int denominator;
@@ -28,8 +27,7 @@ public class Fraction implements Comparable
 	 * @param denominator denominator of a fraction
 	 * @throws ArithmeticException when {@code denominator} is 0
 	 */
-	public Fraction(int numerator, int denominator)
-	{
+	public Fraction(int numerator, int denominator) {
 		if (denominator == 0)
 			throw new DivideZeroException();
 		this.sign = numerator < 0 == denominator < 0;
@@ -47,8 +45,7 @@ public class Fraction implements Comparable
 	 * @throws ArithmeticException      when {@code denominator} is 0
 	 * @throws IllegalArgumentException when {@code numerator} or {@code denominator} is negative
 	 */
-	public Fraction(int numerator, int denominator, boolean sign)
-	{
+	public Fraction(int numerator, int denominator, boolean sign) {
 		if (denominator == 0)
 			throw new DivideZeroException();
 		if (numerator < 0 || denominator < 0)
@@ -64,24 +61,21 @@ public class Fraction implements Comparable
 	 *
 	 * @param boo sign of the fraction.True for positive and false for negative.
 	 */
-	public void setSign(boolean boo)
-	{
+	public void setSign(boolean boo) {
 		this.sign = boo;
 	}
 
 	/**
 	 * @return Opposite number of the given fraction
 	 */
-	public Fraction oppositeNumber()
-	{
+	public Fraction oppositeNumber() {
 		return new Fraction(numerator, denominator, !sign);
 	}
 
 	/**
 	 * make the fraction become the opposite number.
 	 */
-	public void opposite()
-	{
+	public void opposite() {
 		this.setSign(!this.sign);
 	}
 
@@ -90,8 +84,7 @@ public class Fraction implements Comparable
 	 *
 	 * @return the sign of the fraction."+" for positive and "-" for negative.
 	 */
-	public String getSign()
-	{
+	public String getSign() {
 		return this.sign ? "+" : "-";
 	}
 
@@ -100,8 +93,7 @@ public class Fraction implements Comparable
 	 *
 	 * @return the numerator of the fraction
 	 */
-	public int getNumerator()
-	{
+	public int getNumerator() {
 		return this.numerator;
 	}
 
@@ -110,16 +102,14 @@ public class Fraction implements Comparable
 	 *
 	 * @return the denominator of the fraction
 	 */
-	public int getDenominator()
-	{
+	public int getDenominator() {
 		return this.denominator;
 	}
 
 	/**
 	 * make the fraction become the reciprocal.
 	 */
-	public void reciprocal()
-	{
+	public void reciprocal() {
 		int temp = this.numerator;
 		this.numerator = this.denominator;
 		this.denominator = temp;
@@ -129,10 +119,8 @@ public class Fraction implements Comparable
 	 * @param a the addend fraction.
 	 * @return a new fraction which stands for the sum of two fractions.
 	 */
-	public Fraction add(Fraction a)
-	{
-		if (!this.sign && !a.sign)
-		{
+	public Fraction add(Fraction a) {
+		if (!this.sign && !a.sign) {
 			int newNumerator = this.numerator * a.denominator + this.denominator * a.numerator;
 			int newDenominator = this.denominator * a.denominator;
 			int gcd = MathLibrary.gcd(newDenominator, newNumerator);
@@ -152,24 +140,20 @@ public class Fraction implements Comparable
 	 * @param a the minuend number.
 	 * @return a new fraction which stands for the difference between two fractions.
 	 */
-	public Fraction subtract(Fraction a)
-	{
-		if (this.sign && a.sign)
-		{
+	public Fraction subtract(Fraction a) {
+		if (this.sign && a.sign) {
 			int newNumerator = this.numerator * a.denominator - this.denominator * a.numerator;
 			int newDenominator = this.denominator * a.denominator;
 			int gcd = MathLibrary.gcd(newDenominator, newNumerator);
 			return new Fraction(newNumerator / gcd, newDenominator / gcd);
 		}
-		if (!this.sign && a.sign)
-		{
+		if (!this.sign && a.sign) {
 			Fraction newFraction1 = new Fraction(this.numerator, this.denominator, true);
 			Fraction newFraction2 = new Fraction(a.numerator, a.denominator, true);
 			Fraction base = newFraction1.add(newFraction2);
 			return new Fraction(base.numerator, base.denominator, false);
 		}
-		if (this.sign)
-		{
+		if (this.sign) {
 			Fraction temp = new Fraction(a.numerator, a.denominator, true);
 			return this.add(temp);
 		}
@@ -181,8 +165,7 @@ public class Fraction implements Comparable
 	 * @param a the multiplier fraction.
 	 * @return a new fraction which stands for the product of two fractions.
 	 */
-	public Fraction multiply(Fraction a)
-	{
+	public Fraction multiply(Fraction a) {
 		int m = this.numerator;
 		int n = this.denominator;
 		int o = a.numerator;
@@ -200,8 +183,7 @@ public class Fraction implements Comparable
 	 * @param a the dividend fraction.
 	 * @return a new fraction which stands for the quotient of two fraction.
 	 */
-	public Fraction divide(Fraction a)
-	{
+	public Fraction divide(Fraction a) {
 		Fraction temp = new Fraction(a.numerator, a.denominator, a.sign);
 		temp.reciprocal();
 		return this.multiply(temp);
@@ -210,8 +192,7 @@ public class Fraction implements Comparable
 	/**
 	 * @return the value of the fraction.
 	 */
-	public double getValue()
-	{
+	public double getValue() {
 		double d = (double) numerator / denominator;
 		return sign ? d : -d;
 	}
@@ -223,8 +204,7 @@ public class Fraction implements Comparable
 	 * "sign" + "numerator" + "/" + "denominator"
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		if (!sign)
 			builder.append("-");
@@ -244,8 +224,7 @@ public class Fraction implements Comparable
 	 * @throws IllegalArgumentException when {@code o is not a fraction}
 	 */
 	@Override
-	public int compareTo(@NotNull Object o)
-	{
+	public int compareTo(@NotNull Object o) {
 		if (!(o instanceof Fraction))
 			throw new IllegalArgumentException();
 		if (o.equals(this))
@@ -261,8 +240,7 @@ public class Fraction implements Comparable
 	 * @return true if two fractions are equal, otherwise false.
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
 		if (!(obj instanceof Fraction))
@@ -277,8 +255,7 @@ public class Fraction implements Comparable
 	 * @return hashCode of the fraction.
 	 */
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return Objects.hash(sign, numerator, denominator);
 	}
 }

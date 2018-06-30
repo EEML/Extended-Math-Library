@@ -7,8 +7,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
 
-public class LinearEquationOneTest
-{
+public class LinearEquationOneTest {
 	LinearEquationOne line1 = new LinearEquationOne(2, 2, 9);
 	LinearEquationOne line2 = new LinearEquationOne(-3, -2, -1);
 	LinearEquationOne line3 = new LinearEquationOne(-2.2, 4.5, 6);
@@ -20,8 +19,7 @@ public class LinearEquationOneTest
 	LinearEquationOne line9 = new LinearEquationOne(2, 0, 8);
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		assertEquals("2x+2=9\tx=3.5", line1.toString());
 		assertEquals("-3x-2=-1\tx=-0.333", line2.toString());
 		assertEquals("-2.2x+4.5=6\tx=-0.682", line3.toString());
@@ -34,8 +32,7 @@ public class LinearEquationOneTest
 	}
 
 	@Test
-	public void testException()
-	{
+	public void testException() {
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0, 4));
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0.0, 0.342));
 		assertThrows(HighestCoefficientBeZeroException.class, () -> new LinearEquationOne(0, 3, 4));
@@ -46,8 +43,7 @@ public class LinearEquationOneTest
 	}
 
 	@Test
-	public void testGetSolution()
-	{
+	public void testGetSolution() {
 		assertEquals(3.5, line1.getSolution(), 0.001);
 		assertEquals(-0.33, line2.getSolution(), 0.01);
 		assertEquals(-0.682, line3.getSolution(), 0.001);
@@ -60,8 +56,7 @@ public class LinearEquationOneTest
 	}
 
 	@Test
-	public void testCompareTo()
-	{
+	public void testCompareTo() {
 		assertTrue(line1.compareTo(line2) > 0);
 		assertTrue(line3.compareTo(line4) < 0);
 		assertTrue(line5.compareTo(line6) < 0);
@@ -71,8 +66,7 @@ public class LinearEquationOneTest
 	}
 
 	@Test
-	public void testEquals()
-	{
+	public void testEquals() {
 		assertFalse(line1.equals(new Object()));
 		assertFalse(line1.equals(line2));
 		assertFalse(line1.equals(line7));
@@ -81,8 +75,7 @@ public class LinearEquationOneTest
 	}
 
 	@Test
-	public void testHashcode()
-	{
+	public void testHashcode() {
 		assertNotEquals(line1.hashCode(), line2.hashCode());
 		assertNotEquals(line3.hashCode(), line4.hashCode());
 	}
