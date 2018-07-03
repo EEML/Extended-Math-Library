@@ -16,8 +16,7 @@ import java.util.*;
  */
 public class OneVarDouble {
 	private ArrayList<Double> stats;
-
-	public Double[] temp;
+	private Double[] temp;
 
 	public OneVarDouble() {
 		this(new ArrayList<>());
@@ -144,7 +143,7 @@ public class OneVarDouble {
 	private static double median(Double[] arr) {
 		int len = arr.length;
 		if ((len & 1) == 0)
-			return (arr[len / 2] + arr[len / 2 - 1]) / 2.0;
+			return (arr[len >> 1] + arr[(len >> 1) - 1]) / 2.0;
 		return arr[len >> 1];
 	}
 }

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class OneVarDoubleTest {
 	OneVarDouble oneVarDouble = new OneVarDouble();
@@ -154,6 +154,15 @@ public class OneVarDoubleTest {
 	@Test
 	public void testEquals() {
 		init();
+		OneVarDouble n = oneVarDouble;
+		assertTrue(n.equals(oneVarDouble));
+		assertFalse(oneVarDouble.equals(oneVarDouble1));
+		assertFalse(oneVarDouble.equals(new Object()));
+	}
 
+	@Test
+	public void testHashcode() {
+		init();
+		assertNotEquals(oneVarDouble1.hashCode(), oneVarDouble.hashCode());
 	}
 }

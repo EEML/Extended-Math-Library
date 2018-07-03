@@ -16,7 +16,6 @@ import java.util.*;
  */
 class OneVarInteger {
 	private ArrayList<Integer> stats;
-
 	private Integer[] temp;
 
 	public OneVarInteger() {
@@ -25,7 +24,7 @@ class OneVarInteger {
 
 	public OneVarInteger(ArrayList<Integer> stats) {
 		this.stats = stats;
-		temp = stats.toArray(temp);
+		temp = stats.toArray(new Integer[0]);
 		Arrays.sort(temp);
 	}
 
@@ -105,7 +104,7 @@ class OneVarInteger {
 
 	public double getQ3() {
 		Integer[] arr = new Integer[temp.length / 2];
-		System.arraycopy(temp, temp.length / 2, arr, 0, temp.length / 2);
+		System.arraycopy(temp, (temp.length & 1) == 0 ? temp.length / 2 : temp.length / 2 + 1, arr, 0, temp.length / 2);
 		return median(arr);
 	}
 
@@ -123,7 +122,7 @@ class OneVarInteger {
 				MessageFormat.format("mode={0}\n", getMode()),
 				MessageFormat.format("median={0}\n", getMedian()),
 				MessageFormat.format("Q1={0}\n", getQ1()),
-				MessageFormat.format("Q3={0}\n", getQ3()));
+				MessageFormat.format("Q3={0}", getQ3()));
 	}
 
 	@Override
@@ -144,7 +143,7 @@ class OneVarInteger {
 	private static double median(Integer[] arr) {
 		int len = arr.length;
 		if ((len & 1) == 0)
-			return (arr[len / 2] + arr[len / 2 - 1]) / 2.0;
-		return arr[len >> 2];
+			return (arr[len >> 1] + arr[(len >> 1) - 1]) / 2.0;
+		return arr[len >> 1];
 	}
 }
