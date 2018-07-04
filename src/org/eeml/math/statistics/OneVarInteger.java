@@ -191,7 +191,7 @@ class OneVarInteger {
 	 */
 	@Override
 	public String toString() {
-		return MessageFormat.format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}",
+		return MessageFormat.format("{0}{1}{2}{3}{4}{5}{6}{7}" + (hasMode() ? "{8}" : "") + "{9}{10}{11}",
 				MessageFormat.format("mean={0}\n", getMean()),
 				MessageFormat.format("sum={0}\n", getSum()),
 				MessageFormat.format("sum^2={0}\n", getSumSquared()),
@@ -200,7 +200,7 @@ class OneVarInteger {
 				MessageFormat.format("n={0}\n", getTotality()),
 				MessageFormat.format("min={0}\n", getMin()),
 				MessageFormat.format("max={0}\n", getMax()),
-				MessageFormat.format("mode={0}\n", getMode()),
+				MessageFormat.format("mode={0}\n", hasMode() ? getMode() : ""),
 				MessageFormat.format("median={0}\n", getMedian()),
 				MessageFormat.format("Q1={0}\n", getQ1()),
 				MessageFormat.format("Q3={0}", getQ3()));

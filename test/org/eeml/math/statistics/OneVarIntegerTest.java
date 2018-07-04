@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class OneVarIntegerTest {
@@ -154,7 +155,6 @@ public class OneVarIntegerTest {
 				"n=9\n" +
 				"min=55\n" +
 				"max=99\n" +
-				"mode=95\n" +
 				"median=81\n" +
 				"Q1=67\n" +
 				"Q3=96.5", oneVarInteger1.toString());
@@ -173,5 +173,10 @@ public class OneVarIntegerTest {
 	public void testHashcode() {
 		init();
 		assertNotEquals(oneVarInteger1.hashCode(), oneVarInteger.hashCode());
+	}
+
+	@Test
+	public void testThrows() {
+		assertThrows(IllegalArgumentException.class, () -> oneVarInteger1.getMode());
 	}
 }
