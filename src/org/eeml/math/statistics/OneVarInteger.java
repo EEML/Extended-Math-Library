@@ -29,7 +29,7 @@ class OneVarInteger {
 	}
 
 	public double getMean() {
-		return getSum() / getTotality();
+		return (double) getSum() / getTotality();
 	}
 
 	public int getSumSquared() {
@@ -44,7 +44,7 @@ class OneVarInteger {
 		double sd = 0;
 		for (double a : stats)
 			sd += (a - mean) * (a - mean);
-		return Math.sqrt(sd / getTotality() - 1);
+		return Math.sqrt(sd / (getTotality() - 1));
 	}
 
 	public double getStandardDeviation() {
@@ -72,6 +72,12 @@ class OneVarInteger {
 
 	public int getMax() {
 		return temp[temp.length - 1];
+	}
+
+	public boolean hasMode()
+	{
+		HashSet<Integer> set = new HashSet<>(stats);
+		return set.size() != stats.size();
 	}
 
 	public int getMode() {

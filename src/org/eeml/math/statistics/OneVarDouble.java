@@ -74,6 +74,12 @@ public class OneVarDouble {
 		return temp[temp.length - 1];
 	}
 
+	public boolean hasMode()
+	{
+		HashSet<Double> set = new HashSet<>(stats);
+		return set.size() != stats.size();
+	}
+
 	public double getMode() {
 		HashSet<Double> uniqueData = new HashSet<>(stats);
 		HashMap<Integer, Double> map = new HashMap<>();

@@ -116,10 +116,19 @@ public class OneVarDoubleTest {
 	}
 
 	@Test
+	public void testHasMode() {
+		init();
+		assertTrue(oneVarDouble.hasMode());
+		assertFalse(oneVarDouble1.hasMode());
+	}
+
+	@Test
 	public void testGetMode() {
 		init();
-		assertEquals(1, oneVarDouble.getMode(), 0.001);
-		assertEquals(36.6, oneVarDouble1.getMode(), 0.001);
+		if (oneVarDouble.hasMode())
+			assertEquals(1, oneVarDouble.getMode(), 0.001);
+		if (oneVarDouble1.hasMode())
+			assertEquals(36.6, oneVarDouble1.getMode(), 0.001);
 	}
 
 	@Test
