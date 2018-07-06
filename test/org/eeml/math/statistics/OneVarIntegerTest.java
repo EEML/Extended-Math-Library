@@ -3,6 +3,7 @@ package org.eeml.math.statistics;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
@@ -12,30 +13,9 @@ public class OneVarIntegerTest {
 	OneVarInteger oneVarInteger1 = new OneVarInteger();
 
 	private void init() {
-		ArrayList<Integer> list = new ArrayList<>();
-		list.add(3);
-		list.add(4);
-		list.add(8);
-		list.add(8);
-		list.add(9);
-		list.add(1);
-		list.add(6);
-		list.add(1);
-		list.add(3);
-		list.add(4);
-		list.add(1);
-		list.add(3);
+		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(3, 4, 8, 8, 9, 1, 6, 1, 3, 4, 1, 3));
 		oneVarInteger = new OneVarInteger(list);
-		list = new ArrayList<>();
-		list.add(77);
-		list.add(64);
-		list.add(55);
-		list.add(81);
-		list.add(70);
-		list.add(95);
-		list.add(98);
-		list.add(99);
-		list.add(86);
+		list = new ArrayList<>(Arrays.asList(77, 64, 55, 81, 70, 95, 98, 99, 86));
 		oneVarInteger1 = new OneVarInteger(list);
 	}
 

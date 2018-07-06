@@ -3,6 +3,7 @@ package org.eeml.math.statistics;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.eeml.math.ThrowTestTemplate.assertThrows;
 import static org.junit.Assert.*;
@@ -12,30 +13,9 @@ public class OneVarDoubleTest {
 	OneVarDouble oneVarDouble1 = new OneVarDouble();
 
 	private void init() {
-		ArrayList<Double> list = new ArrayList<>();
-		list.add(3.2D);
-		list.add(4D);
-		list.add(8D);
-		list.add(8.3D);
-		list.add(9D);
-		list.add(1D);
-		list.add(6.5D);
-		list.add(1D);
-		list.add(3D);
-		list.add(4D);
-		list.add(1D);
-		list.add(3.2D);
+		ArrayList<Double> list = new ArrayList<>(Arrays.asList(3.2D, 4D, 8D, 8.3D, 9D, 1D, 6.5D, 1D, 3D, 4D, 1D, 3.2D));
 		oneVarDouble = new OneVarDouble(list);
-		list = new ArrayList<>();
-		list.add(38.37D);
-		list.add(26.3D);
-		list.add(16.9D);
-		list.add(38.28D);
-		list.add(1.16D);
-		list.add(4.35D);
-		list.add(40.2D);
-		list.add(15.23D);
-		list.add(36.6D);
+		list = new ArrayList<>(Arrays.asList(38.37D, 26.3D, 16.9D, 38.28D, 1.16D, 4.35D, 40.2D, 15.23D, 36.6D));
 		oneVarDouble1 = new OneVarDouble(list);
 	}
 
