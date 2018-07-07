@@ -17,6 +17,11 @@ public class ChiSquareTest {
 				h[i] += matrix[i][j];
 			}
 		}
+		for (int i = 0; i < matrix[0].length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				v[i] += matrix[i][j];
+			}
+		}
 	}
 
 	public int getDf() {
