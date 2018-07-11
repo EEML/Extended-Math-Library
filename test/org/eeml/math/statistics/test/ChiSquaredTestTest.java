@@ -2,7 +2,7 @@ package org.eeml.math.statistics.test;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ChiSquaredTestTest {
 	ChiSquaredTest test1 = new ChiSquaredTest(new double[][]{
@@ -30,5 +30,13 @@ public class ChiSquaredTestTest {
 	public void testGetPValue() {
 		assertEquals(5.851314e-30, test1.getPValue(), 0.001);
 		assertEquals(0.024425, test2.getPValue(), 0.001);
+	}
+
+	@Test
+	public void testEquals() {
+		ChiSquaredTest chiSquaredTest = test1;
+		assertTrue(chiSquaredTest.equals(test1));
+		assertFalse(test1.equals(test2));
+		assertFalse(test2.equals(new Object()));
 	}
 }
