@@ -2,7 +2,7 @@ package org.eeml.math.exception;
 
 import org.junit.Test;
 
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 
 public class DivideZeroExceptionTest {
 	@Test

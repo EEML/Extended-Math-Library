@@ -4,7 +4,7 @@ import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.eeml.math.expr.ComplexNumber;
 import org.junit.Test;
 
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class QuadraticEquationTest {

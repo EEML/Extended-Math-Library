@@ -3,7 +3,7 @@ package org.eeml.math.expr;
 import org.eeml.math.exception.DivideZeroException;
 import org.junit.Test;
 
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class ComplexNumberTest {

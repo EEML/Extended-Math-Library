@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class OneVarIntegerTest {

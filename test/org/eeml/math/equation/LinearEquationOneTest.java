@@ -4,7 +4,7 @@ import org.eeml.math.exception.HighestCoefficientBeZeroException;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class LinearEquationOneTest {

@@ -3,7 +3,7 @@ package org.eeml.math.exception;
 import org.eeml.math.equation.LinearEquationOne;
 import org.junit.Test;
 
-import static org.eeml.math.ThrowTestTemplate.assertThrows;
+import static org.eeml.math.AssertTemplate.assertThrows;
 
 public class HighestCoefficientBeZeroExceptionTest {
 	@Test
