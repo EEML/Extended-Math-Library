@@ -17,7 +17,7 @@ public class DivideZeroExceptionTest {
 		});
 		assertThrows(DivideZeroException.class, () ->
 		{
-			throw DivideZeroException.fromNumber(1);
+			throw new DivideZeroException(1);
 		});
 	}
 }

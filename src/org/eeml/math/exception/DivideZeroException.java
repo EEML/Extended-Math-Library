@@ -1,6 +1,5 @@
 package org.eeml.math.exception;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,9 +21,7 @@ public class DivideZeroException extends ArithmeticException {
 		this("A number cannot divide zero");
 	}
 
-	@NotNull
-	@Contract("_ -> !null")
-	public static DivideZeroException fromNumber(int num) {
-		return new DivideZeroException(num + " cannot divide zero!");
+	public DivideZeroException(int num) {
+		this(num + " cannot divide zero!");
 	}
 }
