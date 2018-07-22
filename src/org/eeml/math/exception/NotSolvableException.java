@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
  * @see org.eeml.math;
  * @since v1.0.0
  */
+@SuppressWarnings("WeakerAccess")
 public class NotSolvableException extends IllegalStateException {
 	public NotSolvableException(@NotNull @Nls String message) {
 		super(message);

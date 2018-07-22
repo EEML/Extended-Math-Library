@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
  * @see org.eeml.math;
  * @since v1.0.0
  */
+@SuppressWarnings("WeakerAccess")
 public class HighestCoefficientBeZeroException extends IllegalArgumentException {
 	public HighestCoefficientBeZeroException(@NotNull @Nls String message) {
 		super(message);
