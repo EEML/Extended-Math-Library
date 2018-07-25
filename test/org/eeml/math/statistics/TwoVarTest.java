@@ -29,48 +29,48 @@ public class TwoVarTest {
 	@Test
 	public void testGetMean() {
 		init();
-		assertEquals(4.35, twoVar1.getYMean(), 0.001);
+		assertEquals(24.1544, twoVar1.getYMean(), 0.001);
 	}
 
 	@Test
 	public void testGetSum() {
 		init();
-		assertEquals(52.2, twoVar1.getYSum(), 0.001);
+		assertEquals(217.39, twoVar1.getYSum(), 0.001);
 	}
 
 	@Test
 	public void testGetSumSquared() {
 		init();
-		assertEquals(320.62, twoVar1.getYSumSquared(), 0.001);
+		assertEquals(7122.7363, twoVar1.getYSumSquared(), 0.001);
 	}
 
 	@Test
 	public void testGetSampleStandardDeviation() {
 		init();
-		assertEquals(2.9162, twoVar1.getYSampleStandardDeviation(), 0.001);
+		assertEquals(15.296, twoVar1.getYSampleStandardDeviation(), 0.001);
 	}
 
 	@Test
 	public void testGetStandardDeviation() {
 		init();
-		assertEquals(2.7921, twoVar1.getYStandardDeviation(), 0.001);
+		assertEquals(14.421, twoVar1.getYStandardDeviation(), 0.001);
 	}
 
 	@Test
 	public void testGetTotality() {
 		init();
-		assertEquals(12, twoVar1.getTotility());
+		assertEquals(9, twoVar1.getTotility());
 	}
 
 	@Test
 	public void testGetMin() {
 		init();
-		assertEquals(1, twoVar1.getMinY(), 0.001);
+		assertEquals(1.16, twoVar1.getMinY(), 0.001);
 	}
 
 	@Test
 	public void testGetMax() {
 		init();
-		assertEquals(9, twoVar1.getMaxY(), 0.001);
+		assertEquals(40.2, twoVar1.getMaxY(), 0.001);
 	}
 }
