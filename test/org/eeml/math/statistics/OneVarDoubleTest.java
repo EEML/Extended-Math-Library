@@ -9,14 +9,14 @@ import static org.eeml.math.AssertTemplate.assertThrows;
 import static org.junit.Assert.*;
 
 public class OneVarDoubleTest {
-	OneVarDouble oneVarDouble = new OneVarDouble();
-	OneVarDouble oneVarDouble1 = new OneVarDouble();
+	OneVar oneVarDouble = new OneVar();
+	OneVar oneVarDouble1 = new OneVar();
 
 	private void init() {
 		ArrayList<Double> list = new ArrayList<>(Arrays.asList(3.2D, 4D, 8D, 8.3D, 9D, 1D, 6.5D, 1D, 3D, 4D, 1D, 3.2D));
-		oneVarDouble = new OneVarDouble(list);
+		oneVarDouble = new OneVar(list);
 		list = new ArrayList<>(Arrays.asList(38.37D, 26.3D, 16.9D, 38.28D, 1.16D, 4.35D, 40.2D, 15.23D, 36.6D));
-		oneVarDouble1 = new OneVarDouble(list);
+		oneVarDouble1 = new OneVar(list);
 	}
 
 	@Test
@@ -143,7 +143,7 @@ public class OneVarDoubleTest {
 	@Test
 	public void testEquals() {
 		init();
-		OneVarDouble n = oneVarDouble;
+		OneVar n = oneVarDouble;
 		assertTrue(n.equals(oneVarDouble));
 		assertFalse(oneVarDouble.equals(oneVarDouble1));
 		assertFalse(oneVarDouble.equals(new Object()));

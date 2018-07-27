@@ -1,5 +1,6 @@
 package org.eeml.math.statistics;
 
+import org.eeml.math.exception.TypeMismatchException;
 import org.jetbrains.annotations.Contract;
 
 import java.text.MessageFormat;
@@ -16,15 +17,14 @@ import java.util.*;
  * @see org.eeml.math;
  * @since v1.0.0
  */
-public class OneVarDouble {
+public class OneVar {
 	private ArrayList<Double> stats;
 	private Double[] temp;
 
 	/**
 	 * default constructor
 	 */
-	public OneVarDouble() {
-		this(new ArrayList<>());
+	public OneVar() {
 	}
 
 	/**
@@ -32,9 +32,18 @@ public class OneVarDouble {
 	 *
 	 * @param stats data list
 	 */
-	public OneVarDouble(ArrayList<Double> stats) {
-		this.stats = stats;
-		temp = stats.toArray(new Double[0]);
+	public OneVar(ArrayList stats) throws Throwable {
+		ArrayList<Double> list = new ArrayList<>();
+		if (!(stats.get(0) instanceof Integer) && !(stats.get(0) instanceof Double))
+			throw new TypeMismatchException(Double.class);
+		for (Object stat : stats) {
+			if (stat instanceof Integer)
+				list.add(Double.valueOf((Integer) stat));
+			else if (stat instanceof Double)
+				list.add((Double) stat);
+		}
+		this.stats = list;
+		temp = (Double[]) stats.toArray(new Double[0]);
 		Arrays.sort(temp);
 	}
 
@@ -217,9 +226,9 @@ public class OneVarDouble {
 	public boolean equals(Object obj) {
 		if (obj == this)
 			return true;
-		if (!(obj instanceof OneVarDouble))
+		if (!(obj instanceof OneVar))
 			return false;
-		OneVarDouble oneVarDouble = (OneVarDouble) obj;
+		OneVar oneVarDouble = (OneVar) obj;
 		return Arrays.equals(oneVarDouble.temp, this.temp);
 	}
 

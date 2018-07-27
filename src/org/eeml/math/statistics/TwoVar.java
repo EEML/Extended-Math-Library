@@ -8,14 +8,14 @@ public class TwoVar {
 	private ArrayList<Double> list1;
 	private ArrayList<Double> list2;
 
-	private OneVarDouble statList1;
-	private OneVarDouble statList2;
+	private OneVar statList1;
+	private OneVar statList2;
 
-	public TwoVar(ArrayList<Double> x, ArrayList<Double> y) {
+	public TwoVar(ArrayList<Double> x, ArrayList<Double> y) throws Throwable {
 		this.list1 = x;
 		this.list2 = y;
-		statList1 = new OneVarDouble(x);
-		statList2 = new OneVarDouble(y);
+		statList1 = new OneVar(x);
+		statList2 = new OneVar(y);
 		if (statList1.getTotality() != statList2.getTotality()) {
 			statList1 = null;
 			statList2 = null;
@@ -79,7 +79,7 @@ public class TwoVar {
 		return statList2.getMax();
 	}
 
-	public int getTotility() {
+	public int getTotality() {
 		return statList1.getTotality();
 	}
 }
