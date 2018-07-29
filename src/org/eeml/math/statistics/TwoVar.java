@@ -11,7 +11,7 @@ public class TwoVar {
 	private OneVar statList1;
 	private OneVar statList2;
 
-	public TwoVar(ArrayList<Double> x, ArrayList<Double> y) throws Throwable {
+	public TwoVar(ArrayList<Double> x, ArrayList<Double> y) {
 		this.list1 = x;
 		this.list2 = y;
 		statList1 = new OneVar(x);

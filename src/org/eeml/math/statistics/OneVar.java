@@ -32,7 +32,7 @@ public class OneVar {
 	 *
 	 * @param stats data list
 	 */
-	public OneVar(ArrayList stats) throws Throwable {
+	public OneVar(ArrayList stats) {
 		ArrayList<Double> list = new ArrayList<>();
 		if (!(stats.get(0) instanceof Integer) && !(stats.get(0) instanceof Double))
 			throw new TypeMismatchException(Double.class);

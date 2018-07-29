@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("WeakerAccess")
-public class TypeMismatchException extends Throwable {
+public class TypeMismatchException extends IllegalArgumentException {
 	public TypeMismatchException(@NotNull @Nls String message) {
 		super(message);
 	}

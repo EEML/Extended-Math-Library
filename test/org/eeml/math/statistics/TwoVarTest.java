@@ -59,7 +59,7 @@ public class TwoVarTest {
 	@Test
 	public void testGetTotality() {
 		init();
-		assertEquals(9, twoVar1.getTotility());
+		assertEquals(9, twoVar1.getTotality());
 	}
 
 	@Test
