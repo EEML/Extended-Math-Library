@@ -25,6 +25,8 @@ public class OneVar {
 	 * default constructor
 	 */
 	public OneVar() {
+		stats = new ArrayList<>();
+		temp = new Double[0];
 	}
 
 	/**
@@ -34,6 +36,8 @@ public class OneVar {
 	 */
 	public OneVar(ArrayList stats) {
 		ArrayList<Double> list = new ArrayList<>();
+		if (stats.size() == 0)
+			throw new IllegalArgumentException("empty ArrayList");
 		if (!(stats.get(0) instanceof Integer) && !(stats.get(0) instanceof Double))
 			throw new TypeMismatchException(Double.class);
 		for (Object stat : stats) {
@@ -43,7 +47,7 @@ public class OneVar {
 				list.add((Double) stat);
 		}
 		this.stats = list;
-		temp = (Double[]) stats.toArray(new Double[0]);
+		temp = list.toArray(new Double[0]);
 		Arrays.sort(temp);
 	}
 
