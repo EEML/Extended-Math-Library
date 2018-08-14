@@ -1,5 +1,6 @@
 package org.eeml.math.expr;
 
+import java.text.MessageFormat;
 import java.util.Objects;
 
 public class TwoDVector {
@@ -37,7 +38,7 @@ public class TwoDVector {
 
 	@Override
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "(" + MessageFormat.format("{0}", x) + "," + MessageFormat.format("{0}", y) + ")";
 	}
 
 	@Override
