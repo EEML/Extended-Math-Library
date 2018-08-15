@@ -12,5 +12,6 @@ public class TwoDVectorTest {
 	public void testToString() {
 		assertEquals("(2,4)", twoDVector1.toString());
 		assertEquals("(-2,32.2)", twoDVector2.toString());
+
 	}
 }
