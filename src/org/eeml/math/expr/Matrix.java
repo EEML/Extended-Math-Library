@@ -7,9 +7,9 @@ import java.util.Objects;
 
 public class Matrix<T extends Number> {
 
-	private int rows = 0;
-	private int cols = 0;
-	private T[] matrix = null;
+	private int rows;
+	private int cols;
+	private T[] matrix;
 
 	private final Comparator<T> comparator = (o1, o2) -> {
 		int result;
