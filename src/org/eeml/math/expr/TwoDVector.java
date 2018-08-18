@@ -29,7 +29,7 @@ public class TwoDVector {
 	}
 
 	public double multiply(TwoDVector a) {
-		return this.x * a.y + this.y * a.x;
+		return this.x * a.x + this.y * a.y;
 	}
 
 	public TwoDVector multiply(double a) {
