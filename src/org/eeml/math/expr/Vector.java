@@ -12,6 +12,10 @@ public class Vector {
 		list.addAll(Arrays.asList(arguments));
 	}
 
+	public int getDimension(){
+		return list.size();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
