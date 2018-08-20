@@ -1,5 +1,7 @@
 package org.eeml.math.expr;
 
+import java.text.MessageFormat;
+
 public class Coordinate {
 	private double x;
 	private double y;
@@ -38,5 +40,10 @@ public class Coordinate {
 		if (!t.is2D && !k.is2D)
 			return Math.sqrt((t.x - k.x) * (t.x - k.x) + (t.y - k.y) * (t.y - k.y) + (t.z - k.z) * (t.z - k.z));
 		throw new IllegalArgumentException("dimension mismatch");
+	}
+
+	@Override
+	public String toString() {
+		return MessageFormat.format("({0},{1}" + (is2D ? "" : ",{2}") + ")", x, y, z);
 	}
 }
