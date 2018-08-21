@@ -1,6 +1,7 @@
 package org.eeml.math.expr;
 
 import java.text.MessageFormat;
+import java.util.Objects;
 
 public class Coordinate {
 	private double x;
@@ -45,5 +46,20 @@ public class Coordinate {
 	@Override
 	public String toString() {
 		return MessageFormat.format("({0},{1}" + (is2D ? "" : ",{2}") + ")", x, y, z);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Coordinate))
+			return false;
+		Coordinate coordinate = (Coordinate) obj;
+		return this.x == coordinate.x && this.y == coordinate.y && this.z == coordinate.y && this.is2D == coordinate.is2D;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(x, y, z, is2D);
 	}
 }
