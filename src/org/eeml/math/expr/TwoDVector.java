@@ -3,7 +3,7 @@ package org.eeml.math.expr;
 import java.text.MessageFormat;
 import java.util.Objects;
 
-public class TwoDVector {
+public class TwoDVector extends Vector{
 	private double x;
 	private double y;
 
