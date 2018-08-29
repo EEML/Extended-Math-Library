@@ -3,13 +3,15 @@ package org.eeml.math.expr;
 import java.text.MessageFormat;
 import java.util.Objects;
 
-public class TwoDVector extends Vector{
+public class TwoDVector extends Vector {
 	private double x;
 	private double y;
+	private Coordinate coordinate;
 
 	public TwoDVector(double x, double y) {
 		this.x = x;
 		this.y = y;
+		coordinate = new Coordinate(x, y);
 	}
 
 	public TwoDVector add(TwoDVector a) {
@@ -34,6 +36,10 @@ public class TwoDVector extends Vector{
 
 	public TwoDVector multiply(double a) {
 		return new TwoDVector(this.x * a, this.y * a);
+	}
+
+	public Coordinate getCoordinateFormat() {
+		return coordinate;
 	}
 
 	@Override
