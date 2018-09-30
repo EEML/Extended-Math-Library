@@ -51,8 +51,4 @@ public class Line {
 		else
 			return MessageFormat.format("{0}x" + (this.b < 0 ? "" : "+") + "{1}={2}\tx={3}", this.a, this.b, this.c, 0);
 	}
-
-	public static void main(String[] args) {
-		new Line(1, 2, 3).print();
-	}
 }
