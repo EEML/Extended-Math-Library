@@ -9,7 +9,7 @@ package org.eeml.math;
  * @version v1.0.0
  * @see org.eeml.math
  */
-public final class MathematicalConstant {
+public final class MathConstant {
 	/**
 	 * 0 (zero) is both a number and the numerical digit
 	 * used to represent that number in numerals.
@@ -196,6 +196,6 @@ public final class MathematicalConstant {
 	/**
 	 * Don't let anyone instantiate this class.
 	 */
-	private MathematicalConstant() {
+	private MathConstant() {
 	}
 }
